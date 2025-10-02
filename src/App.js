@@ -147,20 +147,31 @@ const ConstitutionCompass = () => {
     }
   };
 
-  const AffiliateLink = () => (
-    <div className="bg-gradient-to-r from-red-50 via-white to-blue-50 border-2 border-indigo-200 rounded-lg p-3 text-center hover:border-indigo-400 transition">
-      <p className="text-sm text-gray-800">
-        <span className="text-xl mr-2">📜</span>
+  // Footer Component with both links
+  const Footer = () => (
+    <div className="mt-6 pt-4 border-t border-gray-200">
+      <div className="flex flex-wrap justify-center items-center gap-4 text-sm">
         <a 
           href="https://amzn.to/3IMOCH6" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="font-bold text-indigo-700 hover:text-indigo-900 underline"
+          className="flex items-center gap-1 text-indigo-700 hover:text-indigo-900 font-semibold"
         >
-          Want your own pocket Constitution?
+          <span>📜</span>
+          <span>Get a Pocket Constitution!</span>
+          <span className="text-xs text-gray-500">(affiliate link)</span>
         </a>
-        <span className="text-xs text-gray-500 ml-1">(affiliate link)</span>
-      </p>
+        <span className="text-gray-300">|</span>
+        <a 
+          href="https://buymeacoffee.com/ericmckenna" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-amber-700 hover:text-amber-900 font-semibold"
+        >
+          <span>☕</span>
+          <span>Buy me a coffee</span>
+        </a>
+      </div>
     </div>
   );
 
@@ -182,6 +193,32 @@ const ConstitutionCompass = () => {
                "Keep Studying! 📝"}
             </p>
           </div>
+          
+          {/* Buy Me a Coffee QR Code */}
+          <div className="mb-6 text-center">
+            <p className="text-sm text-gray-600 mb-3">Enjoyed the quiz? Support this project!</p>
+            <a 
+              href="https://buymeacoffee.com/ericmckenna" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <img 
+                src="/coffee-qr.png" 
+                alt="Buy Me a Coffee QR Code"
+                className="w-40 h-40 mx-auto border-2 border-amber-200 rounded-lg p-2 hover:border-amber-400 transition"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <div style={{ display: 'none' }} className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4">
+                <p className="text-amber-900 font-semibold">☕ Buy me a coffee</p>
+                <p className="text-xs text-amber-700 mt-1">Scan QR or click to support</p>
+              </div>
+            </a>
+          </div>
+
           <button
             onClick={startNewQuiz}
             className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2"
@@ -189,9 +226,8 @@ const ConstitutionCompass = () => {
             <RefreshCw size={20} />
             Take Another Quiz
           </button>
-          <div className="mt-6">
-            <AffiliateLink />
-          </div>
+          
+          <Footer />
         </div>
       </div>
     );
@@ -269,9 +305,7 @@ const ConstitutionCompass = () => {
           </div>
         )}
 
-        <div className="mt-6">
-          <AffiliateLink />
-        </div>
+        <Footer />
       </div>
     </div>
   );
