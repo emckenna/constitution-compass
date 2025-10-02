@@ -1,7 +1,110 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 
-const ConstitutionQuiz = () => {
+const allQuestions = [
+  {
+    q: "How many articles are in the original U.S. Constitution?",
+    a: ["5", "7", "10", "12"],
+    correct: 1
+  },
+  {
+    q: "Which article establishes the Legislative Branch?",
+    a: ["Article I", "Article II", "Article III", "Article IV"],
+    correct: 0
+  },
+  {
+    q: "How many senators does each state have?",
+    a: ["One", "Two", "Three", "Depends on population"],
+    correct: 1
+  },
+  {
+    q: "What is the minimum age requirement to be President?",
+    a: ["30 years", "35 years", "40 years", "45 years"],
+    correct: 1
+  },
+  {
+    q: "Which article establishes the Judicial Branch?",
+    a: ["Article I", "Article II", "Article III", "Article IV"],
+    correct: 2
+  },
+  {
+    q: "How many amendments are in the Bill of Rights?",
+    a: ["5", "10", "15", "27"],
+    correct: 1
+  },
+  {
+    q: "What fraction of Congress is needed to override a presidential veto?",
+    a: ["Simple majority", "Three-fifths", "Two-thirds", "Three-fourths"],
+    correct: 2
+  },
+  {
+    q: "Who has the power to declare war?",
+    a: ["President", "Congress", "Supreme Court", "Secretary of Defense"],
+    correct: 1
+  },
+  {
+    q: "How long is a term for a U.S. Senator?",
+    a: ["2 years", "4 years", "6 years", "8 years"],
+    correct: 2
+  },
+  {
+    q: "What is required to amend the Constitution?",
+    a: ["Majority vote in Congress", "Two-thirds of both houses and three-fourths of states", "Presidential approval", "Supreme Court ruling"],
+    correct: 1
+  },
+  {
+    q: "Who becomes President if both the President and Vice President cannot serve?",
+    a: ["Secretary of State", "Speaker of the House", "Senate Majority Leader", "Chief Justice"],
+    correct: 1
+  },
+  {
+    q: "Which amendment guarantees freedom of speech?",
+    a: ["First Amendment", "Second Amendment", "Fourth Amendment", "Fifth Amendment"],
+    correct: 0
+  },
+  {
+    q: "How many members are in the House of Representatives?",
+    a: ["100", "435", "535", "538"],
+    correct: 1
+  },
+  {
+    q: "Who presides over the Senate?",
+    a: ["President", "Vice President", "Senate Majority Leader", "Speaker"],
+    correct: 1
+  },
+  {
+    q: "Which article describes the amendment process?",
+    a: ["Article IV", "Article V", "Article VI", "Article VII"],
+    correct: 1
+  },
+  {
+    q: "What is the supreme law of the land according to the Constitution?",
+    a: ["State constitutions", "Federal laws", "The Constitution itself", "Supreme Court decisions"],
+    correct: 2
+  },
+  {
+    q: "How long is a term for a U.S. Representative?",
+    a: ["2 years", "4 years", "6 years", "8 years"],
+    correct: 0
+  },
+  {
+    q: "Which amendment protects against unreasonable searches and seizures?",
+    a: ["Second Amendment", "Third Amendment", "Fourth Amendment", "Fifth Amendment"],
+    correct: 2
+  },
+  {
+    q: "Who has the sole power of impeachment?",
+    a: ["Senate", "House of Representatives", "Supreme Court", "President"],
+    correct: 1
+  },
+  {
+    q: "Who tries impeachment cases?",
+    a: ["House of Representatives", "Senate", "Supreme Court", "Federal courts"],
+    correct: 1
+  }
+];
+
+const ConstitutionCompass = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -9,114 +112,7 @@ const ConstitutionQuiz = () => {
   const [quizComplete, setQuizComplete] = useState(false);
   const [questions, setQuestions] = useState([]);
 
-  const allQuestions = [
-    {
-      q: "How many articles are in the original U.S. Constitution?",
-      a: ["5", "7", "10", "12"],
-      correct: 1
-    },
-    {
-      q: "Which article establishes the Legislative Branch?",
-      a: ["Article I", "Article II", "Article III", "Article IV"],
-      correct: 0
-    },
-    {
-      q: "How many senators does each state have?",
-      a: ["One", "Two", "Three", "Depends on population"],
-      correct: 1
-    },
-    {
-      q: "What is the minimum age requirement to be President?",
-      a: ["30 years", "35 years", "40 years", "45 years"],
-      correct: 1
-    },
-    {
-      q: "Which article establishes the Judicial Branch?",
-      a: ["Article I", "Article II", "Article III", "Article IV"],
-      correct: 2
-    },
-    {
-      q: "How many amendments are in the Bill of Rights?",
-      a: ["5", "10", "15", "27"],
-      correct: 1
-    },
-    {
-      q: "What fraction of Congress is needed to override a presidential veto?",
-      a: ["Simple majority", "Three-fifths", "Two-thirds", "Three-fourths"],
-      correct: 2
-    },
-    {
-      q: "Who has the power to declare war?",
-      a: ["President", "Congress", "Supreme Court", "Secretary of Defense"],
-      correct: 1
-    },
-    {
-      q: "How long is a term for a U.S. Senator?",
-      a: ["2 years", "4 years", "6 years", "8 years"],
-      correct: 2
-    },
-    {
-      q: "What is required to amend the Constitution?",
-      a: ["Majority vote in Congress", "Two-thirds of both houses and three-fourths of states", "Presidential approval", "Supreme Court ruling"],
-      correct: 1
-    },
-    {
-      q: "Who becomes President if both the President and Vice President cannot serve?",
-      a: ["Secretary of State", "Speaker of the House", "Senate Majority Leader", "Chief Justice"],
-      correct: 1
-    },
-    {
-      q: "Which amendment guarantees freedom of speech?",
-      a: ["First Amendment", "Second Amendment", "Fourth Amendment", "Fifth Amendment"],
-      correct: 0
-    },
-    {
-      q: "How many members are in the House of Representatives?",
-      a: ["100", "435", "535", "538"],
-      correct: 1
-    },
-    {
-      q: "Who presides over the Senate?",
-      a: ["President", "Vice President", "Senate Majority Leader", "Speaker"],
-      correct: 1
-    },
-    {
-      q: "Which article describes the amendment process?",
-      a: ["Article IV", "Article V", "Article VI", "Article VII"],
-      correct: 1
-    },
-    {
-      q: "What is the supreme law of the land according to the Constitution?",
-      a: ["State constitutions", "Federal laws", "The Constitution itself", "Supreme Court decisions"],
-      correct: 2
-    },
-    {
-      q: "How long is a term for a U.S. Representative?",
-      a: ["2 years", "4 years", "6 years", "8 years"],
-      correct: 0
-    },
-    {
-      q: "Which amendment protects against unreasonable searches and seizures?",
-      a: ["Second Amendment", "Third Amendment", "Fourth Amendment", "Fifth Amendment"],
-      correct: 2
-    },
-    {
-      q: "Who has the sole power of impeachment?",
-      a: ["Senate", "House of Representatives", "Supreme Court", "President"],
-      correct: 1
-    },
-    {
-      q: "Who tries impeachment cases?",
-      a: ["House of Representatives", "Senate", "Supreme Court", "Federal courts"],
-      correct: 1
-    }
-  ];
-
-  useEffect(() => {
-    startNewQuiz();
-  }, []);
-
-  const startNewQuiz = () => {
+  const startNewQuiz = useCallback(() => {
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
     setQuestions(shuffled.slice(0, 10));
     setCurrentQuestion(0);
@@ -124,7 +120,11 @@ const ConstitutionQuiz = () => {
     setSelectedAnswer(null);
     setShowResult(false);
     setQuizComplete(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    startNewQuiz();
+  }, [startNewQuiz]);
 
   const handleAnswer = (index) => {
     if (showResult) return;
@@ -146,6 +146,23 @@ const ConstitutionQuiz = () => {
       setQuizComplete(true);
     }
   };
+
+  const AffiliateLink = () => (
+    <div className="bg-gradient-to-r from-red-50 via-white to-blue-50 border-2 border-indigo-200 rounded-lg p-3 text-center hover:border-indigo-400 transition">
+      <p className="text-sm text-gray-800">
+        <span className="text-xl mr-2">📜</span>
+        <a 
+          href="https://amzn.to/3IMOCH6" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="font-bold text-indigo-700 hover:text-indigo-900 underline"
+        >
+          Want your own pocket Constitution?
+        </a>
+        <span className="text-xs text-gray-500 ml-1">(affiliate link)</span>
+      </p>
+    </div>
+  );
 
   if (questions.length === 0) {
     return <div className="flex items-center justify-center h-screen">Loading...</div>;
@@ -172,6 +189,9 @@ const ConstitutionQuiz = () => {
             <RefreshCw size={20} />
             Take Another Quiz
           </button>
+          <div className="mt-6">
+            <AffiliateLink />
+          </div>
         </div>
       </div>
     );
@@ -248,9 +268,13 @@ const ConstitutionQuiz = () => {
             </button>
           </div>
         )}
+
+        <div className="mt-6">
+          <AffiliateLink />
+        </div>
       </div>
     </div>
   );
 };
 
-export default ConstitutionQuiz;
+export default ConstitutionCompass;
