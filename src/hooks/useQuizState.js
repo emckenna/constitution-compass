@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { allQuestions } from '../data/questions';
+import { generateQuestions } from '../services/apiService';
+import { mockGenerateQuestions } from '../services/mockApiService';
 
-export const useQuizState = () => {
+const USE_MOCK = process.env.NODE_ENV === 'development' && process.env.REACT_APP_USE_MOCK === 'true';
+const apiService = USE_MOCK ? mockGenerateQuestions : generateQuestions;
+
+export const useQuizState = (setPage) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -15,23 +20,15 @@ export const useQuizState = () => {
     setError('');
 
     try {
-      const response = await fetch('/api/generate-questions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ difficulty, topic }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to generate questions');
-      }
-
-      const data = await response.json();
+      const data = await apiService(difficulty, topic);
       setQuestions(data.questions);
-      return true;
+      // Reset quiz state
+      setCurrentQuestion(0);
+      setScore(0);
+      setSelectedAnswer(null);
+      setShowResult(false);
+      setPage('quiz')
     } catch (err) {
-      console.error('Error generating questions:', err);
       setError('Unable to generate AI questions. Would you like to try the hardcoded quiz instead?');
       return false;
     } finally {

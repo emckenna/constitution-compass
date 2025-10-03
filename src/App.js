@@ -35,7 +35,7 @@ const ConstitutionCompass = () => {
     handleAnswer,
     handleNext,
     resetQuiz,
-  } = useQuizState();
+  } = useQuizState(setPage);
 
   const startNewQuiz = useCallback(async () => {
     savePreferences();
