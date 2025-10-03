@@ -6,10 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+### Changed
+
+## [0.0.16] - 2025-10-03
 
 ### Added
+- Mock api for local testing
+- Gemini gemini-2.0-flash-exp model for dynamic question support with difficulty
 
 ### Changed
+- google's gemini package, updated to new one
+- many bug fixes around fetching data from gemini
+- fix formatting bugs with data, remove markdown
+- Fix SetupPage import that wasn't needed
 
 ## [0.0.7] - 2025-10-03
 
