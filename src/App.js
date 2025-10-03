@@ -197,7 +197,7 @@ const ConstitutionCompass = () => {
           
           {/* Title */}
           <h1 className="text-7xl font-extrabold text-indigo-900 mb-6 leading-tight">
-            Constitutional<br />Compass
+            Constitution<br />Compass
           </h1>
           
           {/* Subtitle */}
