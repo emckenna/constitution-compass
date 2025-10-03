@@ -8,9 +8,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+
+## [0.0.5] - 2025-10-03
+
+### Added
+- Modular component architecture with separate page components
+- Custom hooks for state management (usePreferences, useQuizState)
+- Dedicated data directory for questions and topics
+- Serverless API function for AI question generation via Gemini API
+
+### Changed
+- Refactored monolithic App.js (744 lines) into 11 modular files
+- Moved API endpoint from src/api to /api for Vercel serverless functions
+- Simplified local development setup (use hardcoded mode locally, AI on Vercel)
+- Improved code maintainability and testability with separation of concerns
+
+### Removed
+- Development server.js (simplified to use Vercel deployment model)
+
+## [0.0.4] - 2024-10-03
+
+### Added
 - About page showcasing technology and build process
 - Changelog page with collapsible version history
-- Dynamic question generation using Claude AI API
 - Tag-based deployment via GitHub Actions
 - Vercel deployment configuration
 
