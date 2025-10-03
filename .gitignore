@@ -107,3 +107,4 @@ logs
 *.sqlite
 *.sqlite3
 constitution-compass.code-workspace
+.vercel
