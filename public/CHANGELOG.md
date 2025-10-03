@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [0.0.7] - 2025-10-03
+
+### Changed
+- Refactored to use Google Gemini SDK
+
+## [0.0.6] - 2025-10-03
+
+### Changed
+- Changed gemini API endpoint
 
 ## [0.0.5] - 2025-10-03
 
