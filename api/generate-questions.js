@@ -1,39 +1,19 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+
+const { GoogleGenAI } = require('@google/genai');
 
 module.exports = async function handler(req, res) {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const { difficulty, topic } = req.body;
-
-  if (!difficulty || !topic) {
-    return res.status(400).json({ error: 'Missing difficulty or topic' });
-  }
-
-  if (!process.env.GEMINI_API_KEY) {
-    console.error('GEMINI_API_KEY not found in environment variables');
-    return res.status(500).json({ error: 'API key not configured' });
-  }
+  if (!difficulty || !topic) return res.status(400).json({ error: 'Missing parameters' });
 
   try {
-
-console.log('API Key exists:', !!process.env.GEMINI_API_KEY);
-console.log('API Key length:', process.env.GEMINI_API_KEY?.length);
-    
-    // Initialize Gemini API
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
-
+    const client = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
     const prompt = `Generate exactly 10 quiz questions about the U.S. Constitution with the following criteria:
 
 Difficulty: ${difficulty}
@@ -72,43 +52,18 @@ Return ONLY valid JSON in this exact format (no markdown, no code blocks, just p
   ]
 }`;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const result = await client.models.generateContent({
+      model: 'gemini-2.0-flash-exp',
+      contents: [{ role: 'user', parts: [{ text: prompt }] }]
+    });
     
-    console.log('Gemini response:', text.substring(0, 200)); // Log first 200 chars for debugging
-    
-    // Extract JSON from the response (remove any markdown code blocks)
-    let jsonText = text.trim();
-    
-    // Remove markdown code blocks if present
-    if (jsonText.startsWith('```json')) {
-      jsonText = jsonText.replace(/```json\n?/, '').replace(/\n?```$/, '');
-    } else if (jsonText.startsWith('```')) {
-      jsonText = jsonText.replace(/```\n?/, '').replace(/\n?```$/, '');
-    }
-    
-    // Try to find JSON object
-    const jsonMatch = jsonText.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-      console.error('No JSON found in response:', text);
-      throw new Error('No valid JSON found in response');
-    }
-
+    const text = result.response.text();
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
     const questions = JSON.parse(jsonMatch[0]);
-    
-    // Validate response structure
-    if (!questions.questions || !Array.isArray(questions.questions) || questions.questions.length !== 10) {
-      console.error('Invalid question structure:', questions);
-      throw new Error('Invalid question format received');
-    }
     
     return res.status(200).json(questions);
   } catch (error) {
-    console.error('Error generating questions:', error);
-    return res.status(500).json({ 
-      error: 'Failed to generate questions',
-      message: error.message 
-    });
+    console.error('Error:', error);
+    return res.status(500).json({ error: 'Failed to generate', message: error.message });
   }
-}
+};
