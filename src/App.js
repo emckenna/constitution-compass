@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 
 const allQuestions = [
@@ -105,11 +105,11 @@ const allQuestions = [
 ];
 
 const ConstitutionCompass = () => {
+  const [stage, setStage] = useState('landing'); // landing, quiz, complete
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
-  const [quizComplete, setQuizComplete] = useState(false);
   const [questions, setQuestions] = useState([]);
 
   const startNewQuiz = useCallback(() => {
@@ -119,12 +119,8 @@ const ConstitutionCompass = () => {
     setScore(0);
     setSelectedAnswer(null);
     setShowResult(false);
-    setQuizComplete(false);
+    setStage('quiz');
   }, []);
-
-  useEffect(() => {
-    startNewQuiz();
-  }, [startNewQuiz]);
 
   const handleAnswer = (index) => {
     if (showResult) return;
@@ -143,8 +139,17 @@ const ConstitutionCompass = () => {
       setSelectedAnswer(null);
       setShowResult(false);
     } else {
-      setQuizComplete(true);
+      setStage('complete');
     }
+  };
+
+  const resetToLanding = () => {
+    setStage('landing');
+    setCurrentQuestion(0);
+    setScore(0);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    setQuestions([]);
   };
 
   // Footer Component with both links
@@ -159,7 +164,7 @@ const ConstitutionCompass = () => {
         >
           <span>📜</span>
           <span>Get a Pocket Constitution!</span>
-          <span className="text-xs text-gray-500">(affiliate link)</span>
+          <span className="text-xs text-gray-500">(affiliate)</span>
         </a>
         <span className="text-gray-300">|</span>
         <a 
@@ -175,11 +180,62 @@ const ConstitutionCompass = () => {
     </div>
   );
 
-  if (questions.length === 0) {
-    return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  // Landing Page
+  if (stage === 'landing') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Decorative circles */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full -mr-48 -mt-48"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white opacity-10 rounded-full -ml-64 -mb-64"></div>
+        
+        <div className="relative z-10 text-center max-w-4xl">
+          {/* Stars decoration */}
+           <div className="text-6xl mb-12">🦅</div>
+          
+          {/* Animated Icon */}
+          <div className="text-9xl mb-12 animate-bounce">📜</div>
+          
+          {/* Title */}
+          <h1 className="text-7xl font-extrabold text-indigo-900 mb-6 leading-tight">
+            Constitutional<br />Compass
+          </h1>
+          
+          {/* Subtitle */}
+          <div className="text-4xl font-semibold text-indigo-700 mb-8">
+            Test Your Knowledge
+          </div>
+          
+          {/* Description */}
+          <p className="text-2xl text-indigo-800 mb-12 max-w-2xl mx-auto">
+            Interactive quiz on the U.S. Constitution
+          </p>
+          
+          {/* Badge */}
+          <div className="inline-block bg-white bg-opacity-90 px-8 py-4 rounded-full text-xl font-semibold text-indigo-700 mb-12 shadow-lg">
+            🎓 Free Quiz • 10 Random Questions
+          </div>
+          
+          {/* Start Button */}
+          <div>
+            <button
+              onClick={startNewQuiz}
+              className="bg-indigo-600 text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:bg-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-2xl"
+            >
+              Start Quiz →
+            </button>
+          </div>
+          
+          {/* Footer */}
+          <div className="mt-16">
+            <Footer />
+          </div>
+        </div>
+      </div>
+    );
   }
 
-  if (quizComplete) {
+  // Complete Page
+  if (stage === 'complete') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
@@ -219,13 +275,22 @@ const ConstitutionCompass = () => {
             </a>
           </div>
 
-          <button
-            onClick={startNewQuiz}
-            className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2"
-          >
-            <RefreshCw size={20} />
-            Take Another Quiz
-          </button>
+          <div className="space-y-3">
+            <button
+              onClick={startNewQuiz}
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2"
+            >
+              <RefreshCw size={20} />
+              Take Another Quiz
+            </button>
+            
+            <button
+              onClick={resetToLanding}
+              className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-200 transition"
+            >
+              ← Back to Home
+            </button>
+          </div>
           
           <Footer />
         </div>
@@ -233,6 +298,7 @@ const ConstitutionCompass = () => {
     );
   }
 
+  // Quiz Page
   const currentQ = questions[currentQuestion];
 
   return (
