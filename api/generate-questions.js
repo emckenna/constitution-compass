@@ -57,13 +57,27 @@ Return ONLY valid JSON in this exact format (no markdown, no code blocks, just p
       contents: [{ role: 'user', parts: [{ text: prompt }] }]
     });
     
-    const text = result.response.text();
+    // Log the actual structure
+    console.log('Result structure:', JSON.stringify(result, null, 2));
+    
+    // Try different ways to access the text
+    let text;
+    if (result.text) {
+      text = result.text();
+    } else if (result.response?.text) {
+      text = result.response.text();
+    } else if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+      text = result.candidates[0].content.parts[0].text;
+    } else {
+      throw new Error('Cannot find text in response structure');
+    }
+    
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     const questions = JSON.parse(jsonMatch[0]);
     
     return res.status(200).json(questions);
   } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ error: 'Failed to generate', message: error.message });
+    console.error('Full error:', error);
+    return res.status(500).json({ error: 'Failed', message: error.message, stack: error.stack });
   }
 };
