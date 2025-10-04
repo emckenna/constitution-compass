@@ -14,14 +14,12 @@ const CompletePage = ({
   resetToLanding,
 }) => {
   const { region, country, saveScore } = useScoreTracking();
-  const scoreKey = useRef(`${score}-${difficulty}-${Date.now()}`);
   const scoreSaved = useRef(false);
 
   // Save score when component mounts (only once per quiz completion)
+  // Wait for region/country to be loaded before saving
   useEffect(() => {
-    const currentKey = `${score}-${difficulty}`;
-
-    if (!scoreSaved.current) {
+    if (!scoreSaved.current && region && country) {
       const recordScore = async () => {
         await saveScore(score, 10, difficulty);
         scoreSaved.current = true;
@@ -30,7 +28,7 @@ const CompletePage = ({
       recordScore();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [region, country]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
