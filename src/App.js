@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { usePreferences } from './hooks/usePreferences';
 import { useQuizState } from './hooks/useQuizState';
 import LandingPage from './pages/LandingPage';
 import SetupPage from './pages/SetupPage';
 import AboutPage from './pages/AboutPage';
+import MetricsPage from './pages/MetricsPage';
 import QuizPage from './pages/QuizPage';
 import CompletePage from './pages/CompletePage';
 
@@ -69,77 +71,97 @@ const ConstitutionCompass = () => {
   };
 
   // Render the appropriate page based on state
-  switch (page) {
-    case 'landing':
-      return (
-        <LandingPage
-          page={page}
-          setPage={setPage}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-        />
-      );
+  const renderPage = () => {
+    switch (page) {
+      case 'landing':
+        return (
+          <LandingPage
+            page={page}
+            setPage={setPage}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+          />
+        );
 
-    case 'setup':
-      return (
-        <SetupPage
-          page={page}
-          setPage={setPage}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-          useAI={useAI}
-          setUseAI={setUseAI}
-          difficulty={difficulty}
-          setDifficulty={setDifficulty}
-          topic={topic}
-          setTopic={setTopic}
-          loading={loading}
-          error={error}
-          startNewQuiz={startNewQuiz}
-          startHardcodedQuiz={handleStartHardcodedQuiz}
-        />
-      );
+      case 'setup':
+        return (
+          <SetupPage
+            page={page}
+            setPage={setPage}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+            useAI={useAI}
+            setUseAI={setUseAI}
+            difficulty={difficulty}
+            setDifficulty={setDifficulty}
+            topic={topic}
+            setTopic={setTopic}
+            loading={loading}
+            error={error}
+            startNewQuiz={startNewQuiz}
+            startHardcodedQuiz={handleStartHardcodedQuiz}
+          />
+        );
 
-    case 'about':
-      return (
-        <AboutPage
-          page={page}
-          setPage={setPage}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-        />
-      );
+      case 'about':
+        return (
+          <AboutPage
+            page={page}
+            setPage={setPage}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+          />
+        );
 
-    case 'complete':
-      return (
-        <CompletePage
-          page={page}
-          setPage={setPage}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-          score={score}
-          resetToLanding={resetToLanding}
-        />
-      );
+      case 'metrics':
+        return (
+          <MetricsPage
+            page={page}
+            setPage={setPage}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+          />
+        );
 
-    case 'quiz':
-    default:
-      return (
-        <QuizPage
-          page={page}
-          setPage={setPage}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-          currentQuestion={currentQuestion}
-          score={score}
-          selectedAnswer={selectedAnswer}
-          showResult={showResult}
-          questions={questions}
-          handleAnswer={handleAnswer}
-          handleNext={handleQuizNext}
-        />
-      );
-  }
+      case 'complete':
+        return (
+          <CompletePage
+            page={page}
+            setPage={setPage}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+            score={score}
+            difficulty={difficulty}
+            resetToLanding={resetToLanding}
+          />
+        );
+
+      case 'quiz':
+      default:
+        return (
+          <QuizPage
+            page={page}
+            setPage={setPage}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+            currentQuestion={currentQuestion}
+            score={score}
+            selectedAnswer={selectedAnswer}
+            showResult={showResult}
+            questions={questions}
+            handleAnswer={handleAnswer}
+            handleNext={handleQuizNext}
+          />
+        );
+    }
+  };
+
+  return (
+    <>
+      {renderPage()}
+      <Analytics />
+    </>
+  )
 };
 
 export default ConstitutionCompass;

@@ -6,8 +6,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### Added
+- **Vercel Postgres** integration for persistent score tracking
+- Quiz score tracking by geographic region using IP geolocation
+- API endpoint for region detection via ipapi.co (`/api/get-region`)
+- API endpoint for storing quiz scores to Postgres (`/api/save-score`)
+- API endpoint for regional statistics with aggregations (`/api/stats`)
+- Database initialization endpoint (`/api/init-db`)
+- Custom useScoreTracking hook for score data management
+- Region display on quiz completion page
+- SCORE_TRACKING.md documentation with SQL schema and API examples
+- Vercel Analytics integration for user behavior tracking
+
 ### Changed
+- CompletePage now automatically posts score data on completion
+- App.js passes difficulty level to CompletePage for tracking
+- Upgraded TypeScript to 5.9.3 for compatibility
+- Migrated from KV store to Postgres for better analytics capabilities
+
+## [1.0.0] - 2025-10-04
+- general release
+
+### Added
+- Next steps to About page
+- Add Vercel Analytics
+
+### Changed
+- Updated model descpription.
+- Open source section of About
+
 
 ## [0.0.16] - 2025-10-03
 

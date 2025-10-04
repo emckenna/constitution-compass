@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RefreshCw } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { useScoreTracking } from '../hooks/useScoreTracking';
 
 const CompletePage = ({
   page,
@@ -9,8 +10,20 @@ const CompletePage = ({
   mobileMenuOpen,
   setMobileMenuOpen,
   score,
+  difficulty,
   resetToLanding,
 }) => {
+  const { region, country, saveScore } = useScoreTracking();
+
+  // Save score when component mounts
+  useEffect(() => {
+    const recordScore = async () => {
+      await saveScore(score, 10, difficulty);
+    };
+
+    recordScore();
+  }, [score, difficulty, saveScore]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Navigation
@@ -30,6 +43,11 @@ const CompletePage = ({
                score >= 5 ? "Good Effort! 📖" :
                "Keep Studying! 📝"}
             </p>
+            {region && (
+              <p className="text-sm text-gray-500 mt-2">
+                📍 {region}, {country}
+              </p>
+            )}
           </div>
 
           <div className="mb-6 text-center">
@@ -41,7 +59,7 @@ const CompletePage = ({
               className="inline-block"
             >
               <img
-                src="/coffee-qr.png"
+                src="/images/coffee-qr.png"
                 alt="Buy Me a Coffee QR Code"
                 className="w-40 h-40 mx-auto border-2 border-amber-200 rounded-lg p-2 hover:border-amber-400 transition"
                 onError={(e) => {
