@@ -31,11 +31,16 @@ export default async function handler(req, res) {
     const scoreValue = parseFloat(score.toFixed(2));
     const countryValue = country || 'Unknown';
 
+    // Get the user's IP address
+    const forwarded = req.headers['x-forwarded-for'];
+    const ip = forwarded ? forwarded.split(',')[0] : req.connection.remoteAddress;
+    const ipAddress = ip === '::1' || ip === '127.0.0.1' ? null : ip;
+
     // Insert score into Postgres database
     const result = await sql`
-      INSERT INTO quiz_scores (region, country, score, difficulty)
-      VALUES (${region}, ${countryValue}, ${scoreValue}, ${difficulty})
-      RETURNING id, region, country, score, difficulty, created_at
+      INSERT INTO quiz_scores (region, country, score, difficulty, ip_address)
+      VALUES (${region}, ${countryValue}, ${scoreValue}, ${difficulty}, ${ipAddress})
+      RETURNING id, region, country, score, difficulty, ip_address, created_at
     `;
 
     return res.status(200).json({

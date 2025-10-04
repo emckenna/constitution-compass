@@ -29,6 +29,7 @@ export default async function handler(req, res) {
         country VARCHAR(255) NOT NULL,
         score DECIMAL(3,2) NOT NULL CHECK (score >= 0 AND score <= 1),
         difficulty VARCHAR(50) NOT NULL,
+        ip_address VARCHAR(45),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `;
@@ -37,12 +38,13 @@ export default async function handler(req, res) {
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_region ON quiz_scores(region)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_difficulty ON quiz_scores(difficulty)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_created_at ON quiz_scores(created_at)`;
+    await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_ip_address ON quiz_scores(ip_address)`;
 
     return res.status(200).json({
       success: true,
       message: 'Database initialized successfully',
       table: 'quiz_scores',
-      indexes: ['region', 'difficulty', 'created_at']
+      indexes: ['region', 'difficulty', 'created_at', 'ip_address']
     });
   } catch (error) {
     console.error('Error connecting to database:', error);

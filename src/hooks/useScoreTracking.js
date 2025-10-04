@@ -35,6 +35,16 @@ export const useScoreTracking = () => {
       // Calculate score as a percentage (0.00 to 1.00)
       const scorePercentage = score / totalQuestions;
 
+      // Create unique key for this quiz completion
+      const quizKey = `quiz_${score}_${difficulty}_${Date.now()}`;
+      const savedKey = sessionStorage.getItem('lastSavedQuiz');
+
+      // Prevent duplicate saves within the same session (handles React StrictMode double-invocation)
+      if (savedKey && Date.now() - parseInt(savedKey.split('_')[3]) < 2000) {
+        console.log('Preventing duplicate score save');
+        return { success: true, duplicate: true };
+      }
+
       const response = await fetch('/api/save-score', {
         method: 'POST',
         headers: {
@@ -53,6 +63,10 @@ export const useScoreTracking = () => {
       }
 
       const data = await response.json();
+
+      // Mark this quiz as saved
+      sessionStorage.setItem('lastSavedQuiz', quizKey);
+
       return data;
     } catch (err) {
       console.error('Error saving score:', err);
