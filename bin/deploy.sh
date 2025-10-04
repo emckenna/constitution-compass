@@ -30,6 +30,24 @@ if [ -n "$(git status --porcelain)" ]; then
     exit 1
 fi
 
+# Check for unpushed commits
+UNPUSHED=$(git log origin/main..HEAD --oneline 2>/dev/null)
+if [ -n "$UNPUSHED" ]; then
+    echo -e "${YELLOW}⚠️  You have unpushed commits:${NC}"
+    echo "$UNPUSHED"
+    echo ""
+    read -p "Push commits before creating tag? [Y/n]: " push_confirm
+    if [[ ! $push_confirm =~ ^[Nn]$ ]]; then
+        echo -e "${BLUE}📤 Pushing commits to origin/main${NC}"
+        git push origin main
+        echo -e "${GREEN}✅ Commits pushed${NC}"
+        echo ""
+    else
+        echo -e "${RED}❌ Cannot create deployment tag with unpushed commits${NC}"
+        exit 1
+    fi
+fi
+
 # Get the latest tag
 LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
 echo -e "${BLUE}📌 Latest tag: ${YELLOW}$LATEST_TAG${NC}"
