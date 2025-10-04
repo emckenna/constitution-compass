@@ -69,8 +69,8 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      overall: overallStats.rows[0],
-      regional: result.rows,
+      overall: overallStats[0],
+      regional: result,
       filters: {
         difficulty: difficulty || 'all',
         region: region || 'all',

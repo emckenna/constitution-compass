@@ -41,7 +41,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       success: true,
       message: 'Score saved successfully',
-      data: result.rows[0]
+      data: result[0]
     });
   } catch (error) {
     console.error('Error saving score:', error);
