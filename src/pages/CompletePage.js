@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { RefreshCw } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -14,15 +14,20 @@ const CompletePage = ({
   resetToLanding,
 }) => {
   const { region, country, saveScore } = useScoreTracking();
+  const scoreSaved = useRef(false);
 
-  // Save score when component mounts
+  // Save score when component mounts (only once)
   useEffect(() => {
     const recordScore = async () => {
-      await saveScore(score, 10, difficulty);
+      if (!scoreSaved.current) {
+        await saveScore(score, 10, difficulty);
+        scoreSaved.current = true;
+      }
     };
 
     recordScore();
-  }, [score, difficulty, saveScore]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
