@@ -8,6 +8,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Rate limiting for Gemini API (9 requests/minute) to prevent quota exhaustion
+- Vercel geolocation header support (x-vercel-ip-*) as primary data source for region detection
+
+### Changed
+- Get-region API now uses Vercel headers first, falls back to ipapi.co
+- Improved error handling for rate limit exceeded (429) responses
+
+## [0.0.31] - 2025-10-04
+
+### Added
+- IP address tracking in quiz_scores table for better geolocation and abuse prevention
+- Database migration endpoint (`/api/migrate-db`) for schema updates
+- Quick deployment script (`npm run deploy-quick`) for fast patch releases
+
+### Fixed
+- Region/country showing "Unknown" due to timing race condition
+- Multiple duplicate score entries from single quiz completion
+
+## [0.0.30] - 2025-10-04
+
+### Added
+- **Neon Serverless Postgres** integration for persistent score tracking
+- Session-based duplicate score prevention using sessionStorage
+
+### Changed
+- Switched from @vercel/postgres to @neondatabase/serverless for better compatibility
+
+### Fixed
+- Database initialization now creates tables and indexes correctly
+- Neon query result format (array instead of .rows property)
+
+## [0.0.27] - 2025-10-04
+
+### Added
 - **Vercel Postgres** integration for persistent score tracking
 - Quiz score tracking by geographic region using IP geolocation
 - API endpoint for region detection via ipapi.co (`/api/get-region`)
@@ -18,22 +52,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Region display on quiz completion page
 - SCORE_TRACKING.md documentation with SQL schema and API examples
 - Vercel Analytics integration for user behavior tracking
+- Next steps to About page
 
 ### Changed
 - CompletePage now automatically posts score data on completion
 - App.js passes difficulty level to CompletePage for tracking
 - Upgraded TypeScript to 5.9.3 for compatibility
-- Migrated from KV store to Postgres for better analytics capabilities
-
-## [1.0.0] - 2025-10-04
-- general release
-
-### Added
-- Next steps to About page
-- Add Vercel Analytics
-
-### Changed
-- Updated model descpription.
+- Updated model description
 - Open source section of About
 
 
@@ -131,8 +156,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic component structure
 - Lucide React icons integration
 
-[unreleased]: https://github.com/emckenna/constitutional-compass/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/emckenna/constitutional-compass/releases/tag/v1.0.0
+[unreleased]: https://github.com/emckenna/constitutional-compass/compare/v0.0.31...HEAD
+[0.0.31]: https://github.com/emckenna/constitutional-compass/releases/tag/v0.0.31
+[0.0.30]: https://github.com/emckenna/constitutional-compass/releases/tag/v0.0.30
+[0.0.27]: https://github.com/emckenna/constitutional-compass/releases/tag/v0.0.27
 [0.0.3]: https://github.com/emckenna/constitutional-compass/releases/tag/v0.0.3
 [0.0.2]: https://github.com/emckenna/constitutional-compass/releases/tag/v0.0.2
 [0.0.1]: https://github.com/emckenna/constitutional-compass/releases/tag/v0.0.1
