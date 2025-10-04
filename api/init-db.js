@@ -2,7 +2,9 @@
 // Run this once to create the quiz_scores table
 // You can run it via: curl https://your-domain.vercel.app/api/init-db
 
-import { sql } from '@vercel/postgres';
+import { neon } from '@neondatabase/serverless';
+
+const sql = neon(process.env.DATABASE_URL);
 
 export default async function handler(req, res) {
   // Enable CORS
