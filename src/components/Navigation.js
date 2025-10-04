@@ -29,10 +29,9 @@ const Navigation = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => (
           </button>
           <button
             onClick={() => setPage('metrics')}
-            className={`font-semibold transition relative ${page === 'metrics' ? 'text-indigo-600' : 'text-gray-700 hover:text-indigo-600'}`}
+            className={`font-semibold transition ${page === 'metrics' ? 'text-indigo-600' : 'text-gray-700 hover:text-indigo-600'}`}
           >
             Metrics
-            <span className="absolute -top-1 -right-8 text-xs bg-amber-500 text-white px-1.5 py-0.5 rounded">Soon</span>
           </button>
           <button
             onClick={() => setPage('setup')}
@@ -67,10 +66,9 @@ const Navigation = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => (
             </button>
             <button
               onClick={() => { setPage('metrics'); setMobileMenuOpen(false); }}
-              className="text-left px-4 py-2 rounded hover:bg-gray-100 font-semibold flex items-center gap-2"
+              className="text-left px-4 py-2 rounded hover:bg-gray-100 font-semibold"
             >
               Metrics
-              <span className="text-xs bg-amber-500 text-white px-1.5 py-0.5 rounded">Soon</span>
             </button>
             <button
               onClick={() => { setPage('setup'); setMobileMenuOpen(false); }}
