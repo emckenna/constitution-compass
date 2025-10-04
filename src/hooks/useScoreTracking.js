@@ -10,13 +10,11 @@ export const useScoreTracking = () => {
   useEffect(() => {
     const fetchRegion = async () => {
       try {
-        console.log('Fetching region data...');
         const response = await fetch('/api/get-region');
         if (!response.ok) {
           throw new Error(`Failed to get region: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Region data received:', data);
         setRegion(data.region);
         setCountry(data.country);
       } catch (err) {

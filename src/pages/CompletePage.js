@@ -19,10 +19,8 @@ const CompletePage = ({
   // Save score when component mounts (only once per quiz completion)
   // Wait for region/country to be loaded before saving
   useEffect(() => {
-    console.log('CompletePage - region:', region, 'country:', country, 'scoreSaved:', scoreSaved.current);
     if (!scoreSaved.current && region && country) {
       const recordScore = async () => {
-        console.log('Saving score with region:', region, 'country:', country);
         await saveScore(score, 10, difficulty);
         scoreSaved.current = true;
       };
