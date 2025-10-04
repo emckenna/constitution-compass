@@ -6,7 +6,14 @@ export const generateQuestions = async (difficulty, topic) => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to generate questions');
+    const errorData = await response.json().catch(() => ({}));
+
+    if (response.status === 429) {
+      const retryAfter = errorData.retryAfter || 60;
+      throw new Error(`Rate limit exceeded. Please wait ${retryAfter} seconds before trying again.`);
+    }
+
+    throw new Error(errorData.message || 'Failed to generate questions');
   }
 
   return await response.json();
