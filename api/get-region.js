@@ -13,18 +13,33 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Get the user's IP address from the request
-    const forwarded = req.headers['x-forwarded-for'];
-    const ip = forwarded ? forwarded.split(',')[0] : req.connection.remoteAddress;
+    // Try Vercel's built-in geolocation headers first
+    const country = req.headers['x-vercel-ip-country'] || null;
+    const region = req.headers['x-vercel-ip-country-region'] || null;
+    const city = req.headers['x-vercel-ip-city'] || null;
+    const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.connection.remoteAddress;
 
-    // For development, use a default IP
+    // If Vercel headers are available, use them (faster and more reliable)
+    if (country && region) {
+      return res.status(200).json({
+        ip: ip,
+        region: region,
+        country: country,
+        city: city || 'Unknown',
+      });
+    }
+
+    // Fallback to ipapi.co for non-Vercel environments
     const clientIp = ip === '::1' || ip === '127.0.0.1' ? '8.8.8.8' : ip;
 
-    // Fetch region data from ipapi.co
-    const response = await fetch(`https://ipapi.co/${clientIp}/json/`);
+    const response = await fetch(`https://ipapi.co/${clientIp}/json/`, {
+      headers: {
+        'User-Agent': 'Constitution-Compass/1.0'
+      }
+    });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch region data');
+      throw new Error(`ipapi.co returned ${response.status}`);
     }
 
     const data = await response.json();
