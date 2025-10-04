@@ -2,8 +2,17 @@
 
 # Constitution Compass Deployment Script
 # Handles version tagging and triggers Vercel deployment via GitHub Actions
+# Usage:
+#   ./deploy.sh         - Interactive deployment
+#   ./deploy.sh --quick - Quick deploy with patch bump and auto-confirm
 
 set -e
+
+# Check for quick mode
+QUICK_MODE=false
+if [ "$1" == "--quick" ]; then
+    QUICK_MODE=true
+fi
 
 # Colors for output
 RED='\033[0;31m'
@@ -36,15 +45,23 @@ if [ -n "$UNPUSHED" ]; then
     echo -e "${YELLOW}⚠️  You have unpushed commits:${NC}"
     echo "$UNPUSHED"
     echo ""
-    read -p "Push commits before creating tag? [Y/n]: " push_confirm
-    if [[ ! $push_confirm =~ ^[Nn]$ ]]; then
-        echo -e "${BLUE}📤 Pushing commits to origin/main${NC}"
+
+    if [ "$QUICK_MODE" = true ]; then
+        echo -e "${BLUE}📤 Auto-pushing commits to origin/main${NC}"
         git push origin main
         echo -e "${GREEN}✅ Commits pushed${NC}"
         echo ""
     else
-        echo -e "${RED}❌ Cannot create deployment tag with unpushed commits${NC}"
-        exit 1
+        read -p "Push commits before creating tag? [Y/n]: " push_confirm
+        if [[ ! $push_confirm =~ ^[Nn]$ ]]; then
+            echo -e "${BLUE}📤 Pushing commits to origin/main${NC}"
+            git push origin main
+            echo -e "${GREEN}✅ Commits pushed${NC}"
+            echo ""
+        else
+            echo -e "${RED}❌ Cannot create deployment tag with unpushed commits${NC}"
+            exit 1
+        fi
     fi
 fi
 
@@ -60,51 +77,62 @@ MINOR=${VERSION_PARTS[1]:-0}
 PATCH=${VERSION_PARTS[2]:-0}
 
 # Ask for version bump type
-echo ""
-echo "Select version bump type:"
-echo "  1) Patch (bug fixes)        v$MAJOR.$MINOR.$PATCH -> v$MAJOR.$MINOR.$((PATCH+1))"
-echo "  2) Minor (new features)     v$MAJOR.$MINOR.$PATCH -> v$MAJOR.$((MINOR+1)).0"
-echo "  3) Major (breaking changes) v$MAJOR.$MINOR.$PATCH -> v$((MAJOR+1)).0.0"
-echo "  4) Custom version"
-echo "  5) Cancel"
-echo ""
-read -p "Enter choice [1-5]: " choice
+if [ "$QUICK_MODE" = true ]; then
+    # Auto-select patch bump for quick mode
+    NEW_VERSION="v$MAJOR.$MINOR.$((PATCH+1))"
+    echo ""
+    echo -e "${BLUE}📦 Quick mode - auto-selecting patch bump${NC}"
+else
+    echo ""
+    echo "Select version bump type:"
+    echo "  1) Patch (bug fixes)        v$MAJOR.$MINOR.$PATCH -> v$MAJOR.$MINOR.$((PATCH+1))"
+    echo "  2) Minor (new features)     v$MAJOR.$MINOR.$PATCH -> v$MAJOR.$((MINOR+1)).0"
+    echo "  3) Major (breaking changes) v$MAJOR.$MINOR.$PATCH -> v$((MAJOR+1)).0.0"
+    echo "  4) Custom version"
+    echo "  5) Cancel"
+    echo ""
+    read -p "Enter choice [1-5]: " choice
 
-case $choice in
-    1)
-        NEW_VERSION="v$MAJOR.$MINOR.$((PATCH+1))"
-        ;;
-    2)
-        NEW_VERSION="v$MAJOR.$((MINOR+1)).0"
-        ;;
-    3)
-        NEW_VERSION="v$((MAJOR+1)).0.0"
-        ;;
-    4)
-        read -p "Enter custom version (e.g., v1.2.3): " NEW_VERSION
-        if [[ ! $NEW_VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo -e "${RED}❌ Error: Invalid version format. Must be v0.0.0${NC}"
+    case $choice in
+        1)
+            NEW_VERSION="v$MAJOR.$MINOR.$((PATCH+1))"
+            ;;
+        2)
+            NEW_VERSION="v$MAJOR.$((MINOR+1)).0"
+            ;;
+        3)
+            NEW_VERSION="v$((MAJOR+1)).0.0"
+            ;;
+        4)
+            read -p "Enter custom version (e.g., v1.2.3): " NEW_VERSION
+            if [[ ! $NEW_VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                echo -e "${RED}❌ Error: Invalid version format. Must be v0.0.0${NC}"
+                exit 1
+            fi
+            ;;
+        5)
+            echo -e "${YELLOW}Deployment cancelled${NC}"
+            exit 0
+            ;;
+        *)
+            echo -e "${RED}❌ Invalid choice${NC}"
             exit 1
-        fi
-        ;;
-    5)
-        echo -e "${YELLOW}Deployment cancelled${NC}"
-        exit 0
-        ;;
-    *)
-        echo -e "${RED}❌ Invalid choice${NC}"
-        exit 1
-        ;;
-esac
+            ;;
+    esac
+fi
 
 echo ""
 echo -e "${BLUE}📦 New version: ${GREEN}$NEW_VERSION${NC}"
 
 # Confirm deployment
-read -p "Continue with deployment? [y/N]: " confirm
-if [[ ! $confirm =~ ^[Yy]$ ]]; then
-    echo -e "${YELLOW}Deployment cancelled${NC}"
-    exit 0
+if [ "$QUICK_MODE" = true ]; then
+    echo -e "${GREEN}Auto-confirming deployment${NC}"
+else
+    read -p "Continue with deployment? [y/N]: " confirm
+    if [[ ! $confirm =~ ^[Yy]$ ]]; then
+        echo -e "${YELLOW}Deployment cancelled${NC}"
+        exit 0
+    fi
 fi
 
 # Create and push tag

@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "bash bin/deploy.sh"
+    "deploy": "bash bin/deploy.sh",
+    "deploy-quick": "bash bin/deploy.sh --quick"
   },
   "eslintConfig": {
     "extends": [
