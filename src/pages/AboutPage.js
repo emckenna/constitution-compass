@@ -155,6 +155,30 @@ const AboutPage = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => {
               <li>Leaderboards by region</li>
               <li>More question topics and categories</li>
             </ul>
+
+            <h2 className="text-2xl font-semibold text-indigo-800 mt-8 mb-4">Development Standards</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              This project follows industry best practices for versioning and documentation:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4">
+              <li>
+                <strong>Versioning:</strong> Follows{' '}
+                <a href="https://semver.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 underline">
+                  Semantic Versioning
+                </a>{' '}
+                (SemVer) for clear version management
+              </li>
+              <li>
+                <strong>Changelog:</strong> Maintains a structured changelog following{' '}
+                <a href="https://keepachangelog.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 underline">
+                  Keep a Changelog
+                </a>{' '}
+                format
+              </li>
+              <li>
+                <strong>Deployment:</strong> Automated CI/CD pipeline with tag-based releases
+              </li>
+            </ul>
           </div>
 
           <div className="mt-12 border-t pt-8">

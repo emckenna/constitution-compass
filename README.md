@@ -195,6 +195,8 @@ For **recruiters and hiring managers**: I'm happy to walk through the architectu
 - Hosted on [Vercel](https://vercel.com)
 - Database by [Neon](https://neon.tech)
 - Icons by [Lucide](https://lucide.dev)
+- Versioning follows [Semantic Versioning](https://semver.org/)
+- Changelog format based on [Keep a Changelog](https://keepachangelog.com/)
 - README template inspired by [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
 ---
