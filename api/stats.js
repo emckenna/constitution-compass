@@ -20,6 +20,9 @@ export default async function handler(req, res) {
     // Get query parameters
     const { difficulty, region, limit = '50' } = req.query;
 
+    // Exclude owner's IP address from analytics
+    const OWNER_IP = '108.48.37.101';
+
     // Build the base query for regional statistics
     let query = sql`
       SELECT
@@ -33,8 +36,9 @@ export default async function handler(req, res) {
       FROM quiz_scores
     `;
 
-    // Add filters if provided
-    const conditions = [];
+    // Add filters (always exclude owner IP)
+    const conditions = [sql`(ip_address IS NULL OR ip_address != ${OWNER_IP})`];
+
     if (difficulty) {
       conditions.push(sql`difficulty = ${difficulty}`);
     }
@@ -43,9 +47,7 @@ export default async function handler(req, res) {
     }
 
     // Combine conditions with WHERE clause
-    if (conditions.length > 0) {
-      query = sql`${query} WHERE ${sql.join(conditions, sql` AND `)}`;
-    }
+    query = sql`${query} WHERE ${sql.join(conditions, sql` AND `)}`;
 
     // Group by region, country, and difficulty
     query = sql`
@@ -57,19 +59,38 @@ export default async function handler(req, res) {
 
     const result = await query;
 
-    // Also get overall statistics
+    // Also get overall statistics (excluding owner IP)
     const overallStats = await sql`
       SELECT
         COUNT(*) as total_scores,
         COUNT(DISTINCT region) as total_regions,
         ROUND(AVG(score)::numeric, 2) as overall_avg_score
       FROM quiz_scores
-      ${difficulty ? sql`WHERE difficulty = ${difficulty}` : sql``}
+      WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+      ${difficulty ? sql`AND difficulty = ${difficulty}` : sql``}
+    `;
+
+    // Get difficulty breakdown
+    const difficultyStats = await sql`
+      SELECT
+        difficulty,
+        COUNT(*) as total_attempts,
+        ROUND(AVG(score)::numeric, 2) as avg_score
+      FROM quiz_scores
+      WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+      GROUP BY difficulty
+      ORDER BY
+        CASE difficulty
+          WHEN 'easy' THEN 1
+          WHEN 'medium' THEN 2
+          WHEN 'hard' THEN 3
+        END
     `;
 
     return res.status(200).json({
       success: true,
       overall: overallStats[0],
+      byDifficulty: difficultyStats,
       regional: result,
       filters: {
         difficulty: difficulty || 'all',
