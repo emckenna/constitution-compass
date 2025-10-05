@@ -25,6 +25,10 @@ Constitution Compass is an interactive quiz application designed to test and imp
 
 **Live Application:** [https://constitution-compass.vercel.app](https://constitution-compass.vercel.app)
 
+**Project Documentation:**
+- 📋 [CHANGELOG](CHANGELOG.md) - View all releases and updates
+- 📄 [LICENSE](LICENSE) - Copyright and usage terms
+
 ### Key Features
 
 - 🤖 **AI-Powered Question Generation** - Dynamic questions using Google Gemini API

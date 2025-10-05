@@ -8,8 +8,8 @@ const AboutPage = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => {
   const [changelog, setChangelog] = useState('');
 
   useEffect(() => {
-    // Fetch changelog
-    fetch('/docs/CHANGELOG.md')
+    // Fetch changelog from GitHub (since it's in the root, not public/)
+    fetch('https://raw.githubusercontent.com/emckenna/constitution-compass/main/CHANGELOG.md')
       .then(response => response.text())
       .then(text => setChangelog(text))
       .catch(err => console.error('Error loading changelog:', err));
@@ -44,6 +44,7 @@ const AboutPage = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => {
               <li><strong>React 18</strong> - Modern UI framework</li>
               <li><strong>Tailwind CSS</strong> - Utility-first styling</li>
               <li><strong>Lucide React</strong> - Beautiful icon library</li>
+              <li><strong>Recharts</strong> - Data visualization for analytics dashboard</li>
               <li><strong>Vercel</strong> - Deployment and hosting</li>
               <li><strong>Vercel Postgres (Neon)</strong> - Regional score tracking and analytics</li>
               <li><strong>Vercel Analytics</strong> - User behavior insights</li>
