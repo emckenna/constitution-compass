@@ -4,6 +4,16 @@ const Footer = () => (
   <div className="mt-6 pt-4 border-t border-gray-200">
     <div className="flex flex-wrap justify-center items-center gap-4 text-sm">
       <a
+        href="https://github.com/emckenna/constitution-compass/issues/new?template=feedback.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-blue-600 hover:text-blue-800 font-semibold"
+      >
+        <span>💬</span>
+        <span>Send Feedback</span>
+      </a>
+      <span className="text-gray-300">|</span>
+      <a
         href="https://amzn.to/3IMOCH6"
         target="_blank"
         rel="noopener noreferrer"
