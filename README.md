@@ -95,14 +95,45 @@ This application was primarily built using **Claude AI** (Anthropic's large lang
 
 ## Deployment
 
-This project uses automated deployment via GitHub Actions:
+This project uses a **preview-then-promote** workflow for safe deployments:
 
-### Quick Deploy (Patch Version)
+### Development Workflow
+
+1. **Create a feature branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make changes and push**
+   ```bash
+   git add .
+   git commit -m "Your changes"
+   git push origin feature/your-feature-name
+   ```
+
+3. **Preview deployment automatically created**
+   - GitHub Actions automatically deploys to Vercel preview URL
+   - Test your changes on the preview URL before merging
+
+4. **Create Pull Request**
+   - Open PR to merge into `main`
+   - Preview URL will be commented on the PR
+
+5. **Merge and deploy to production**
+   ```bash
+   git checkout main
+   git pull
+   npm run deploy-quick  # Auto-tags and deploys to production
+   ```
+
+### Deployment Commands
+
+**Quick Deploy (Patch Version)**
 ```bash
 npm run deploy-quick
 ```
 
-### Interactive Deploy
+**Interactive Deploy**
 ```bash
 npm run deploy
 ```
@@ -112,7 +143,12 @@ The deploy script:
 - Auto-pushes commits if needed
 - Creates and pushes version tags
 - Triggers GitHub Actions workflow
-- Deploys to Vercel automatically
+- Deploys to Vercel production automatically
+
+### Deployment Environments
+
+- **Preview:** All feature branches and PRs → `https://constitution-compass-<hash>.vercel.app`
+- **Production:** Tagged releases on `main` → `https://constitution-compass.vercel.app`
 
 ## API Endpoints
 
