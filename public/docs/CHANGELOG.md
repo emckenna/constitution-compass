@@ -8,12 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Automated daily Constitution quiz posts to X/Twitter** via Vercel Cron
+- Daily tweets table in database to track posted questions and answers
+- Two API endpoints for scheduled X posting (question and answer)
+- Integration with X API v2 using twitter-api-v2 library
 - Rate limiting for Gemini API (9 requests/minute) to prevent quota exhaustion
 - Vercel geolocation header support (x-vercel-ip-*) as primary data source for region detection
+- Acknowledgments for Semantic Versioning and Keep a Changelog standards
+- GitHub Issues feedback system with templates for bugs, features, and general feedback
 
 ### Changed
 - Get-region API now uses Vercel headers first, falls back to ipapi.co
 - Improved error handling for rate limit exceeded (429) responses
+- Comprehensive README with copyright protection and usage policy
+- Added X/Twitter contact (@USConstCompass) throughout app and documentation
 
 ## [0.0.31] - 2025-10-04
 
