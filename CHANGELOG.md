@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2025-10-05
+
+### Fixed
+- Stats API 500 error due to improper dynamic query building with Neon SQL tagged templates
+- Rewrote query logic with explicit conditional branches for filter combinations
+
 ## [1.0.0] - 2025-10-05
 
 ### Added
@@ -95,7 +101,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 See git history for detailed changes in versions prior to v0.0.32.
 
-[Unreleased]: https://github.com/emckenna/constitution-compass/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/emckenna/constitution-compass/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/emckenna/constitution-compass/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/emckenna/constitution-compass/compare/v0.0.37...v1.0.0
 [0.0.37]: https://github.com/emckenna/constitution-compass/compare/v0.0.36...v0.0.37
 [0.0.36]: https://github.com/emckenna/constitution-compass/compare/v0.0.35...v0.0.36
