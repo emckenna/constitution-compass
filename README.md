@@ -1,260 +1,208 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a id="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+# Constitution Compass
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![project_license][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">Constitution Compass</h3>
-
+  <h3 align="center">Constitution Compass</h3>
   <p align="center">
-    My little helper to learn about the US Constitution
+    Interactive quiz application for learning about the U.S. Constitution
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://constitution-compass.vercel.app"><strong>Try it Live »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    &middot;
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/emckenna/constitution-compass/issues/new?template=bug_report.md">Report Bug</a>
+    ·
+    <a href="https://github.com/emckenna/constitution-compass/issues/new?template=feature_request.md">Request Feature</a>
+    ·
+    <a href="https://github.com/emckenna/constitution-compass/issues/new?template=feedback.md">Send Feedback</a>
   </p>
 </div>
 
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Constitution Compass is an interactive quiz application designed to test and improve your knowledge of the United States Constitution. Whether you're a student, educator, or civically engaged citizen, this tool makes learning about our founding document engaging and accessible.
 
-Work in progress.
+**Live Application:** [https://constitution-compass.vercel.app](https://constitution-compass.vercel.app)
 
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
+### Key Features
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- 🤖 **AI-Powered Question Generation** - Dynamic questions using Google Gemini API
+- 📊 **Regional Analytics** - Track quiz performance by geographic region
+- 🎯 **Customizable Difficulty** - Easy, Medium, and Hard levels
+- 📚 **Topic-Specific Quizzes** - Focus on specific Constitutional topics
+- 💡 **Detailed Explanations** - Learn from each answer
+- 📱 **Responsive Design** - Works on all devices
+- 🔒 **Privacy-Focused** - Only regional data collected, no personal information
 
+### Built With AI
 
+This application was primarily built using **Claude AI** (Anthropic's large language model) as a development partner. The codebase demonstrates how AI can accelerate modern web development while maintaining code quality and best practices.
 
-### Built With
+### Technology Stack
 
-* [![React][React.js]][React-url]
-* [![Claude][Claude.ai]][Claude-url]
+- **Frontend:** React 19, Tailwind CSS, Lucide React icons
+- **Backend:** Node.js 22, Vercel Serverless Functions
+- **Database:** Neon Serverless Postgres (via Vercel)
+- **AI Services:** Google Gemini API (gemini-2.0-flash-exp), Claude AI (development)
+- **Analytics:** Vercel Analytics
+- **Hosting:** Vercel
+- **CI/CD:** GitHub Actions with tag-based deployments
+- **Geolocation:** Vercel headers + ipapi.co fallback
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
 ## Getting Started
-
-Will need to be updated, this is all the default from https://github.com/othneildrew/Best-README-Template
-
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- Node.js 22 or higher
+- npm or yarn
+- Google Gemini API key (for AI-generated questions)
+- Neon Postgres database (for score tracking)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
+1. Clone the repository
+   ```bash
+   git clone https://github.com/emckenna/constitution-compass.git
+   cd constitution-compass
    ```
-3. Install NPM packages
-   ```sh
+
+2. Install dependencies
+   ```bash
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
+
+3. Create a `.env.local` file with required environment variables
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key
+   DATABASE_URL=your_neon_postgres_connection_string
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+4. Initialize the database
+   ```bash
+   # After deploying to Vercel, visit:
+   https://your-app.vercel.app/api/init-db
+   ```
 
+5. Run the development server
+   ```bash
+   npm start
+   ```
 
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-<!-- USAGE EXAMPLES -->
-## Usage
+**Note:** AI-generated questions require the Gemini API and will only work in production (Vercel). For local development, the app falls back to hardcoded questions.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Deployment
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+This project uses automated deployment via GitHub Actions:
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Quick Deploy (Patch Version)
+```bash
+npm run deploy-quick
+```
 
+### Interactive Deploy
+```bash
+npm run deploy
+```
 
+The deploy script:
+- Checks for uncommitted changes
+- Auto-pushes commits if needed
+- Creates and pushes version tags
+- Triggers GitHub Actions workflow
+- Deploys to Vercel automatically
 
-<!-- ROADMAP -->
-## Roadmap
+## API Endpoints
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- `POST /api/generate-questions` - Generate AI quiz questions
+- `GET /api/get-region` - Get user's geographic region
+- `POST /api/save-score` - Save quiz score to database
+- `GET /api/stats` - Get regional statistics
+- `GET /api/init-db` - Initialize database tables (run once)
+- `GET /api/migrate-db` - Run database migrations
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+## Features Roadmap
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- [ ] Interactive analytics dashboard
+- [ ] Historical trending analysis
+- [ ] Regional leaderboards
+- [ ] Free-text questions with AI evaluation
+- [ ] Automated daily trivia posts to X/Twitter
+- [ ] More question topics and categories
+- [ ] User accounts and progress tracking
 
-
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+**This repository is for portfolio and demonstration purposes.**
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+While I appreciate your interest, I am **not accepting contributions** at this time as this is a personal portfolio project. However, I welcome:
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- 🐛 **Bug reports** via [GitHub Issues](https://github.com/emckenna/constitution-compass/issues/new?template=bug_report.md)
+- 💡 **Feature suggestions** via [GitHub Issues](https://github.com/emckenna/constitution-compass/issues/new?template=feature_request.md)
+- 💬 **General feedback** via [GitHub Issues](https://github.com/emckenna/constitution-compass/issues/new?template=feedback.md)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## License & Copyright
 
-### Top contributors:
+**© 2024-2025 Eric McKenna. All Rights Reserved.**
 
-<a href="https://github.com/github_username/repo_name/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
-</a>
+This project is **publicly viewable** for transparency and educational purposes, but remains protected by copyright.
 
+### Usage Policy
 
+- ✅ **View and learn** from the code
+- ✅ **Use the live application** at [constitution-compass.vercel.app](https://constitution-compass.vercel.app)
+- ✅ **Report bugs and suggest features** via GitHub Issues
+- ⚠️ **Do NOT** copy, fork, or redistribute this code without explicit permission
+- ⚠️ **Do NOT** use this code commercially without a license agreement
 
-<!-- LICENSE -->
-## License
+### Why This Approach?
 
-Distributed under the project_license. See `LICENSE.txt` for more information.
+This is a **portfolio project** showcasing technical capabilities to employers and collaborators. Making it public allows:
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- 📊 Transparency in demonstrating skills and coding practices
+- 🤝 Community feedback and bug reports
+- 🎓 Others to learn from the implementation
+- 🔒 Protection of intellectual property and future opportunities
 
+### Want to Use This Code?
 
+If you're interested in licensing this code or discussing collaboration:
+- 📧 Email: eric.mckenna@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/ericmckenna](https://www.linkedin.com/in/ericmckenna/)
+- 🐦 X/Twitter: [@USConstCompass](https://x.com/USConstCompass)
 
-<!-- CONTACT -->
+For **recruiters and hiring managers**: I'm happy to walk through the architecture, discuss technical decisions, and demonstrate how these skills apply to your needs.
+
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+**Eric McKenna**
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+- 💼 LinkedIn: [linkedin.com/in/ericmckenna](https://www.linkedin.com/in/ericmckenna/) - Open to opportunities
+- 🐦 X/Twitter: [@USConstCompass](https://x.com/USConstCompass)
+- 💻 GitHub: [@emckenna](https://github.com/emckenna)
+- 🌐 Live App: [constitution-compass.vercel.app](https://constitution-compass.vercel.app)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+**Portfolio Context:** This project showcases full-stack development capabilities—from React component architecture and state management to serverless functions, AI integration, and database design with Postgres. It demonstrates practical problem-solving and the ability to ship a polished, production-ready application.
 
+**Job Seeking?** I know how challenging the market can be. I built this to showcase technical skills and connect with others—whether you're hiring, looking for opportunities yourself, or want to discuss building with AI and modern web tech.
 
-
-<!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+- Built primarily with [Claude AI](https://claude.ai) by Anthropic
+- Powered by [Google Gemini API](https://ai.google.dev/gemini-api)
+- Hosted on [Vercel](https://vercel.com)
+- Database by [Neon](https://neon.tech)
+- Icons by [Lucide](https://lucide.dev)
+- README template inspired by [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+---
 
-
+**🇺🇸 Learn the Constitution. Know your rights. Be an informed citizen.**
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[issues-shield]: https://img.shields.io/github/issues/emckenna/constitution-compass.svg?style=for-the-badge
+[issues-url]: https://github.com/emckenna/constitution-compass/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-<!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
-[Claude-url]: https://claude.ai
-[Claude.ai]: https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[linkedin-url]: https://linkedin.com/in/ericmckenna
