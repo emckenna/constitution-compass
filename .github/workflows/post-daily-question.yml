@@ -1,0 +1,18 @@
+name: Post Daily Constitution Question
+
+on:
+  schedule:
+    # Runs at 12:00 PM EST (17:00 UTC) every day
+    - cron: '0 17 * * *'
+  workflow_dispatch: # Allows manual triggering for testing
+
+jobs:
+  post-question:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post question to X
+        run: |
+          curl -X POST https://constitution-compass.vercel.app/api/post-daily-question \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" \
+            -v

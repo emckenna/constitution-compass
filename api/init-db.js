@@ -34,17 +34,39 @@ export default async function handler(req, res) {
       )
     `;
 
-    // Create indexes
+    // Create indexes for quiz_scores
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_region ON quiz_scores(region)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_difficulty ON quiz_scores(difficulty)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_created_at ON quiz_scores(created_at)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_quiz_scores_ip_address ON quiz_scores(ip_address)`;
 
+    // Create daily_tweets table for tracking X posts
+    await sql`
+      CREATE TABLE IF NOT EXISTS daily_tweets (
+        id SERIAL PRIMARY KEY,
+        question_tweet_id VARCHAR(255) NOT NULL UNIQUE,
+        answer_tweet_id VARCHAR(255),
+        question_text TEXT NOT NULL,
+        correct_answer VARCHAR(255) NOT NULL,
+        explanation TEXT,
+        posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        answered_at TIMESTAMP,
+        status VARCHAR(50) DEFAULT 'question_posted'
+      )
+    `;
+
+    // Create indexes for daily_tweets
+    await sql`CREATE INDEX IF NOT EXISTS idx_daily_tweets_status ON daily_tweets(status)`;
+    await sql`CREATE INDEX IF NOT EXISTS idx_daily_tweets_posted_at ON daily_tweets(posted_at)`;
+
     return res.status(200).json({
       success: true,
       message: 'Database initialized successfully',
-      table: 'quiz_scores',
-      indexes: ['region', 'difficulty', 'created_at', 'ip_address']
+      tables: ['quiz_scores', 'daily_tweets'],
+      indexes: {
+        quiz_scores: ['region', 'difficulty', 'created_at', 'ip_address'],
+        daily_tweets: ['status', 'posted_at']
+      }
     });
   } catch (error) {
     console.error('Error connecting to database:', error);
