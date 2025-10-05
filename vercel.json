@@ -1,5 +1,15 @@
 {
   "git": {
     "deploymentEnabled": false
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/post-daily-question",
+      "schedule": "0 17 * * *"
+    },
+    {
+      "path": "/api/post-daily-answer",
+      "schedule": "0 19 * * *"
+    }
+  ]
 }

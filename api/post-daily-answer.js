@@ -1,5 +1,5 @@
 // Post answer to today's Constitution question on X
-// Called by GitHub Actions at 1:00 PM daily (1 hour after question)
+// Called by Vercel Cron at 2:00 PM EST (19:00 UTC) daily (2 hours after question)
 
 import { TwitterApi } from 'twitter-api-v2';
 import { neon } from '@neondatabase/serverless';
@@ -7,15 +7,9 @@ import { neon } from '@neondatabase/serverless';
 const sql = neon(process.env.DATABASE_URL);
 
 export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
+  // Vercel Cron sends GET requests
+  if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  // Verify secret token (prevents unauthorized calls)
-  const authHeader = req.headers.authorization;
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   try {
