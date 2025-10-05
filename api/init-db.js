@@ -61,12 +61,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: 'Database initialized successfully',
-      tables: ['quiz_scores', 'daily_tweets'],
-      indexes: {
-        quiz_scores: ['region', 'difficulty', 'created_at', 'ip_address'],
-        daily_tweets: ['status', 'posted_at']
-      }
+      message: 'Database initialized successfully'
     });
   } catch (error) {
     console.error('Error connecting to database:', error);
