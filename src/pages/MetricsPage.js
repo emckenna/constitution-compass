@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { TrendingUp, Users, Award, BarChart3 } from 'lucide-react';
+import { Award, BarChart3 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -9,10 +9,44 @@ const MetricsPage = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState('all');
+  // Use mock data only in development (localhost)
+  const [useMockData] = useState(window.location.hostname === 'localhost');
+
+  // Mock data for preview
+  const mockStats = {
+    overall: {
+      total_scores: 342,
+      overall_avg_score: 0.76,
+      total_regions: 15
+    },
+    byDifficulty: [
+      { difficulty: 'easy', avg_score: 0.85, total_attempts: 128 },
+      { difficulty: 'medium', avg_score: 0.72, total_attempts: 143 },
+      { difficulty: 'hard', avg_score: 0.61, total_attempts: 71 }
+    ],
+    regional: [
+      { region: 'California', country: 'United States', avg_score: 0.82, total_attempts: 45 },
+      { region: 'Texas', country: 'United States', avg_score: 0.79, total_attempts: 38 },
+      { region: 'New York', country: 'United States', avg_score: 0.77, total_attempts: 32 },
+      { region: 'Florida', country: 'United States', avg_score: 0.75, total_attempts: 28 },
+      { region: 'Virginia', country: 'United States', avg_score: 0.74, total_attempts: 25 },
+      { region: 'Pennsylvania', country: 'United States', avg_score: 0.72, total_attempts: 22 },
+      { region: 'Massachusetts', country: 'United States', avg_score: 0.71, total_attempts: 19 },
+      { region: 'Georgia', country: 'United States', avg_score: 0.70, total_attempts: 17 },
+      { region: 'Ontario', country: 'Canada', avg_score: 0.69, total_attempts: 15 },
+      { region: 'Illinois', country: 'United States', avg_score: 0.68, total_attempts: 14 }
+    ]
+  };
 
   useEffect(() => {
-    fetchStats(selectedDifficulty);
-  }, [selectedDifficulty]);
+    if (useMockData) {
+      setStats(mockStats);
+      setLoading(false);
+    } else {
+      fetchStats(selectedDifficulty);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedDifficulty, useMockData]);
 
   const fetchStats = async (difficulty) => {
     setLoading(true);
@@ -97,46 +131,42 @@ const MetricsPage = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-indigo-900 mb-2">📊 Analytics Dashboard</h1>
-            <p className="text-gray-600">Constitutional knowledge across the nation</p>
+            <h1 className="text-4xl font-bold text-indigo-900 mb-2">
+              📜 Our Constitutional Knowledge <span className="inline-block scale-x-[-1]">📜</span>
+            </h1>
+            <p className="text-gray-600">Tracking civic education across the nation</p>
           </div>
 
           {/* Overview Cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg">
-                  <Users className="text-indigo-600" size={24} />
-                </div>
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl mb-3">🎓</div>
+              <div className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-3">
+                Total Quizzes Taken
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
+              <div className="text-5xl font-bold text-indigo-900">
                 {stats?.overall?.total_scores || 0}
               </div>
-              <div className="text-sm text-gray-600">Total Quizzes Taken</div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg">
-                  <TrendingUp className="text-green-600" size={24} />
-                </div>
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl mb-3">⚖️</div>
+              <div className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-3">
+                Overall Average Score
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
+              <div className="text-5xl font-bold text-indigo-900">
                 {stats?.overall?.overall_avg_score ? formatPercentage(stats.overall.overall_avg_score) : 'N/A'}
               </div>
-              <div className="text-sm text-gray-600">Overall Average Score</div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg">
-                  <Award className="text-purple-600" size={24} />
-                </div>
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl mb-3">🗽</div>
+              <div className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-3">
+                Regions Participating
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
+              <div className="text-5xl font-bold text-indigo-900">
                 {stats?.overall?.total_regions || 0}
               </div>
-              <div className="text-sm text-gray-600">Regions Participating</div>
             </div>
           </div>
 

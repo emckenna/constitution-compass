@@ -9,7 +9,11 @@ const Navigation = ({ page, setPage, mobileMenuOpen, setMobileMenuOpen }) => (
           onClick={() => setPage('landing')}
           className="flex items-center gap-2 text-xl font-bold text-indigo-900 hover:text-indigo-700 transition"
         >
-          <span className="text-2xl">📜</span>
+          <img
+            src="/images/const-compass-logo-transparent-400x400.png"
+            alt="Constitution Compass"
+            className="w-8 h-8"
+          />
           <span className="hidden sm:inline">Constitution Compass</span>
           <span className="sm:hidden">CC</span>
         </button>
