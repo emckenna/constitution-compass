@@ -23,41 +23,77 @@ export default async function handler(req, res) {
     // Exclude owner's IP address from analytics
     const OWNER_IP = '108.48.37.101';
 
-    // Build the base query for regional statistics
-    let query = sql`
-      SELECT
-        region,
-        country,
-        difficulty,
-        COUNT(*) as total_attempts,
-        ROUND(AVG(score)::numeric, 2) as avg_score,
-        ROUND(MIN(score)::numeric, 2) as min_score,
-        ROUND(MAX(score)::numeric, 2) as max_score
-      FROM quiz_scores
-    `;
-
-    // Add filters (always exclude owner IP)
-    const conditions = [sql`(ip_address IS NULL OR ip_address != ${OWNER_IP})`];
-
-    if (difficulty) {
-      conditions.push(sql`difficulty = ${difficulty}`);
+    // Build the query for regional statistics
+    let result;
+    if (difficulty && region) {
+      result = await sql`
+        SELECT
+          region,
+          country,
+          difficulty,
+          COUNT(*) as total_attempts,
+          ROUND(AVG(score)::numeric, 2) as avg_score,
+          ROUND(MIN(score)::numeric, 2) as min_score,
+          ROUND(MAX(score)::numeric, 2) as max_score
+        FROM quiz_scores
+        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+          AND difficulty = ${difficulty}
+          AND region = ${region}
+        GROUP BY region, country, difficulty
+        ORDER BY total_attempts DESC, avg_score DESC
+        LIMIT ${parseInt(limit)}
+      `;
+    } else if (difficulty) {
+      result = await sql`
+        SELECT
+          region,
+          country,
+          difficulty,
+          COUNT(*) as total_attempts,
+          ROUND(AVG(score)::numeric, 2) as avg_score,
+          ROUND(MIN(score)::numeric, 2) as min_score,
+          ROUND(MAX(score)::numeric, 2) as max_score
+        FROM quiz_scores
+        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+          AND difficulty = ${difficulty}
+        GROUP BY region, country, difficulty
+        ORDER BY total_attempts DESC, avg_score DESC
+        LIMIT ${parseInt(limit)}
+      `;
+    } else if (region) {
+      result = await sql`
+        SELECT
+          region,
+          country,
+          difficulty,
+          COUNT(*) as total_attempts,
+          ROUND(AVG(score)::numeric, 2) as avg_score,
+          ROUND(MIN(score)::numeric, 2) as min_score,
+          ROUND(MAX(score)::numeric, 2) as max_score
+        FROM quiz_scores
+        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+          AND region = ${region}
+        GROUP BY region, country, difficulty
+        ORDER BY total_attempts DESC, avg_score DESC
+        LIMIT ${parseInt(limit)}
+      `;
+    } else {
+      result = await sql`
+        SELECT
+          region,
+          country,
+          difficulty,
+          COUNT(*) as total_attempts,
+          ROUND(AVG(score)::numeric, 2) as avg_score,
+          ROUND(MIN(score)::numeric, 2) as min_score,
+          ROUND(MAX(score)::numeric, 2) as max_score
+        FROM quiz_scores
+        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+        GROUP BY region, country, difficulty
+        ORDER BY total_attempts DESC, avg_score DESC
+        LIMIT ${parseInt(limit)}
+      `;
     }
-    if (region) {
-      conditions.push(sql`region = ${region}`);
-    }
-
-    // Combine conditions with WHERE clause
-    query = sql`${query} WHERE ${sql.join(conditions, sql` AND `)}`;
-
-    // Group by region, country, and difficulty
-    query = sql`
-      ${query}
-      GROUP BY region, country, difficulty
-      ORDER BY total_attempts DESC, avg_score DESC
-      LIMIT ${parseInt(limit)}
-    `;
-
-    const result = await query;
 
     // Also get overall statistics (excluding owner IP)
     const overallStats = await sql`
