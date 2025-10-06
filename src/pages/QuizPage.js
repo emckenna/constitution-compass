@@ -93,7 +93,22 @@ const QuizPage = ({
           {showResult && currentQ.explanation && (
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
               <p className="text-sm font-semibold text-blue-900 mb-1">Explanation:</p>
-              <p className="text-sm text-blue-800">{currentQ.explanation}</p>
+              <p className="text-sm text-blue-800">
+                {currentQ.explanation}
+                {currentQ.citation && currentQ.citationUrl && (
+                  <>
+                    {' '}
+                    <a
+                      href={currentQ.citationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 underline font-medium"
+                    >
+                      {currentQ.citation}
+                    </a>
+                  </>
+                )}
+              </p>
             </div>
           )}
 
