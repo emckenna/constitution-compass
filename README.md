@@ -80,6 +80,7 @@ This application was primarily built using **Claude AI** (Anthropic's large lang
    ```env
    GEMINI_API_KEY=your_gemini_api_key
    DATABASE_URL=your_neon_postgres_connection_string
+   BLACKLIST_IPS=your.ip.address.here,another.ip.if.needed  # Optional: Exclude IPs from analytics
    ```
 
 4. Initialize the database

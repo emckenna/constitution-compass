@@ -20,8 +20,18 @@ export default async function handler(req, res) {
     // Get query parameters
     const { difficulty, region, limit = '50' } = req.query;
 
-    // Exclude owner's IP address from analytics
-    const OWNER_IP = '108.48.37.101';
+    // Exclude blacklisted IPs from analytics (e.g., owner's IP for testing)
+    const BLACKLIST_IPS = process.env.BLACKLIST_IPS
+      ? process.env.BLACKLIST_IPS.split(',').map(ip => ip.trim()).filter(ip => ip.length > 0)
+      : [];
+
+    // Helper to build IP exclusion condition
+    const getIpFilter = () => {
+      if (BLACKLIST_IPS.length === 0) {
+        return sql`1=1`; // No filter if no blacklist
+      }
+      return sql`(ip_address IS NULL OR ip_address NOT IN ${sql(BLACKLIST_IPS)})`;
+    };
 
     // Build the query for regional statistics
     let result;
@@ -36,7 +46,7 @@ export default async function handler(req, res) {
           ROUND(MIN(score)::numeric, 2) as min_score,
           ROUND(MAX(score)::numeric, 2) as max_score
         FROM quiz_scores
-        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+        WHERE ${getIpFilter()}
           AND difficulty = ${difficulty}
           AND region = ${region}
         GROUP BY region, country, difficulty
@@ -54,7 +64,7 @@ export default async function handler(req, res) {
           ROUND(MIN(score)::numeric, 2) as min_score,
           ROUND(MAX(score)::numeric, 2) as max_score
         FROM quiz_scores
-        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+        WHERE ${getIpFilter()}
           AND difficulty = ${difficulty}
         GROUP BY region, country, difficulty
         ORDER BY total_attempts DESC, avg_score DESC
@@ -71,7 +81,7 @@ export default async function handler(req, res) {
           ROUND(MIN(score)::numeric, 2) as min_score,
           ROUND(MAX(score)::numeric, 2) as max_score
         FROM quiz_scores
-        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+        WHERE ${getIpFilter()}
           AND region = ${region}
         GROUP BY region, country, difficulty
         ORDER BY total_attempts DESC, avg_score DESC
@@ -88,21 +98,21 @@ export default async function handler(req, res) {
           ROUND(MIN(score)::numeric, 2) as min_score,
           ROUND(MAX(score)::numeric, 2) as max_score
         FROM quiz_scores
-        WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+        WHERE ${getIpFilter()}
         GROUP BY region, country, difficulty
         ORDER BY total_attempts DESC, avg_score DESC
         LIMIT ${parseInt(limit)}
       `;
     }
 
-    // Also get overall statistics (excluding owner IP)
+    // Also get overall statistics (excluding blacklisted IPs)
     const overallStats = await sql`
       SELECT
         COUNT(*) as total_scores,
         COUNT(DISTINCT region) as total_regions,
         ROUND(AVG(score)::numeric, 2) as overall_avg_score
       FROM quiz_scores
-      WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+      WHERE ${getIpFilter()}
       ${difficulty ? sql`AND difficulty = ${difficulty}` : sql``}
     `;
 
@@ -113,7 +123,7 @@ export default async function handler(req, res) {
         COUNT(*) as total_attempts,
         ROUND(AVG(score)::numeric, 2) as avg_score
       FROM quiz_scores
-      WHERE (ip_address IS NULL OR ip_address != ${OWNER_IP})
+      WHERE ${getIpFilter()}
       GROUP BY difficulty
       ORDER BY
         CASE difficulty
