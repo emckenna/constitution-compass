@@ -1,0 +1,83 @@
+# Constitutional Facts for X/Twitter Posts
+# Generated: 2025-10-06T00:00:00.000Z
+# Total Facts: 10 (sample - run scripts/generate-facts.js to generate full 200)
+#
+# Each fact has:
+#   - id: unique identifier
+#   - text: the fact content (under 240 chars)
+#   - citation: Bluebook citation (optional)
+#   - citationUrl: link to source (optional)
+#   - posted: whether this fact has been posted
+#   - postedAt: timestamp when posted
+
+facts:
+  - id: 1
+    text: "The Constitution is the oldest written national constitution still in use today."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 2
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 3
+    text: "The original Constitution had no Bill of Rights. These were added as the first 10 amendments."
+    citation: "U.S. Const. amend. I-X"
+    citationUrl: "https://constitution.congress.gov/browse/amendment-1/"
+    posted: false
+    postedAt: null
+
+  - id: 4
+    text: "Article I grants Congress the power to declare war, not the President."
+    citation: "U.S. Const. art. I, § 8, cl. 11"
+    citationUrl: "https://constitution.congress.gov/browse/article-1/section-8/"
+    posted: false
+    postedAt: null
+
+  - id: 5
+    text: "The Electoral College, not popular vote, officially elects the President."
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/browse/article-2/section-1/"
+    posted: false
+    postedAt: null
+
+  - id: 6
+    text: "Supreme Court justices serve for life during good behavior - they can only be removed through impeachment."
+    citation: "U.S. Const. art. III, § 1"
+    citationUrl: "https://constitution.congress.gov/browse/article-3/section-1/"
+    posted: false
+    postedAt: null
+
+  - id: 7
+    text: "The Constitution can be amended, but it requires approval from 2/3 of Congress and 3/4 of the states."
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/browse/article-5/"
+    posted: false
+    postedAt: null
+
+  - id: 8
+    text: "The First Amendment protects five freedoms: religion, speech, press, assembly, and petition."
+    citation: "U.S. Const. amend. I"
+    citationUrl: "https://constitution.congress.gov/browse/amendment-1/"
+    posted: false
+    postedAt: null
+
+  - id: 9
+    text: "The 13th Amendment abolished slavery throughout the United States in 1865."
+    citation: "U.S. Const. amend. XIII"
+    citationUrl: "https://constitution.congress.gov/browse/amendment-13/"
+    posted: false
+    postedAt: null
+
+  - id: 10
+    text: "The 19th Amendment granted women the right to vote, ratified in 1920."
+    citation: "U.S. Const. amend. XIX"
+    citationUrl: "https://constitution.congress.gov/browse/amendment-19/"
+    posted: false
+    postedAt: null
+
