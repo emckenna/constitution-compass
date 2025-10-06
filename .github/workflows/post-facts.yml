@@ -20,6 +20,8 @@ on:
 jobs:
   post-fact:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow the action to push commits
 
     steps:
       - name: Checkout code
