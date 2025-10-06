@@ -1,7 +1,7 @@
 # Constitutional Facts for X/Twitter Posts
-# Generated: 2025-10-06T00:00:00.000Z
-# Total Facts: 10 (sample - run scripts/generate-facts.js to generate full 200)
-#
+# Generated: 2025-10-06T14:15:24.213Z
+# Total Facts: 200
+# 
 # Each fact has:
 #   - id: unique identifier
 #   - text: the fact content (under 240 chars)
@@ -12,72 +12,1349 @@
 
 facts:
   - id: 1
-    text: "The Constitution is the oldest written national constitution still in use today."
-    citation: "U.S. Const."
-    citationUrl: "https://constitution.congress.gov/"
-    posted: false
-    postedAt: null
-
-  - id: 2
     text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
     citation: "U.S. Const."
     citationUrl: "https://constitution.congress.gov/"
     posted: false
     postedAt: null
 
+  - id: 2
+    text: "The oldest delegate at the Constitutional Convention was Benjamin Franklin, age 81."
+    citation: "Catherine Drinker Bowen, Miracle at Philadelphia (1986)."
+    posted: false
+    postedAt: null
+
   - id: 3
-    text: "The original Constitution had no Bill of Rights. These were added as the first 10 amendments."
-    citation: "U.S. Const. amend. I-X"
-    citationUrl: "https://constitution.congress.gov/browse/amendment-1/"
+    text: "The Constitution originally didn't explicitly guarantee individual rights; the Bill of Rights came later."
+    citation: "U.S. Const. amends. I-X"
     posted: false
     postedAt: null
 
   - id: 4
-    text: "Article I grants Congress the power to declare war, not the President."
-    citation: "U.S. Const. art. I, § 8, cl. 11"
-    citationUrl: "https://constitution.congress.gov/browse/article-1/section-8/"
+    text: "Article I establishes the Legislative Branch (Congress)."
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/browse/article-i/"
     posted: false
     postedAt: null
 
   - id: 5
-    text: "The Electoral College, not popular vote, officially elects the President."
+    text: "The President must be a natural-born citizen. U.S. Const. art. II, § 1."
     citation: "U.S. Const. art. II, § 1"
-    citationUrl: "https://constitution.congress.gov/browse/article-2/section-1/"
+    citationUrl: "https://constitution.congress.gov/browse/article-ii/"
     posted: false
     postedAt: null
 
   - id: 6
-    text: "Supreme Court justices serve for life during good behavior - they can only be removed through impeachment."
-    citation: "U.S. Const. art. III, § 1"
-    citationUrl: "https://constitution.congress.gov/browse/article-3/section-1/"
+    text: "The Constitution outlines the process for impeachment (House impeaches, Senate tries)."
+    citation: "U.S. Const. art. I, § 2, 3"
+    citationUrl: "https://constitution.congress.gov/search/?q=impeachment"
     posted: false
     postedAt: null
 
   - id: 7
-    text: "The Constitution can be amended, but it requires approval from 2/3 of Congress and 3/4 of the states."
-    citation: "U.S. Const. art. V"
-    citationUrl: "https://constitution.congress.gov/browse/article-5/"
+    text: "The 3/5 Compromise (later repealed) counted enslaved people as 3/5 of a person for representation."
+    citation: "U.S. Const. art. I, § 2, cl. 3"
     posted: false
     postedAt: null
 
   - id: 8
-    text: "The First Amendment protects five freedoms: religion, speech, press, assembly, and petition."
-    citation: "U.S. Const. amend. I"
-    citationUrl: "https://constitution.congress.gov/browse/amendment-1/"
+    text: "The Senate originally was not directly elected by the people. Amendment 17 changed that."
+    citation: "U.S. Const. amend. XVII"
+    citationUrl: "https://constitution.congress.gov/constitution/amendment-17/"
     posted: false
     postedAt: null
 
   - id: 9
-    text: "The 13th Amendment abolished slavery throughout the United States in 1865."
-    citation: "U.S. Const. amend. XIII"
-    citationUrl: "https://constitution.congress.gov/browse/amendment-13/"
+    text: "The Constitution is the supreme law of the land (Supremacy Clause)."
+    citation: "U.S. Const. art. VI, cl. 2"
+    citationUrl: "https://constitution.congress.gov/browse/article-vi/"
     posted: false
     postedAt: null
 
   - id: 10
-    text: "The 19th Amendment granted women the right to vote, ratified in 1920."
+    text: "Congress can declare war. U.S. Const. art. I, § 8."
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/browse/article-i/"
+    posted: false
+    postedAt: null
+
+  - id: 11
+    text: "The First Amendment guarantees freedom of speech, religion, press, assembly, and petition."
+    citation: "U.S. Const. amend. I"
+    citationUrl: "https://constitution.congress.gov/constitution/amendment-1/"
+    posted: false
+    postedAt: null
+
+  - id: 12
+    text: "The Second Amendment protects the right to bear arms."
+    citation: "U.S. Const. amend. II"
+    citationUrl: "https://constitution.congress.gov/constitution/amendment-2/"
+    posted: false
+    postedAt: null
+
+  - id: 13
+    text: "The Eighth Amendment prohibits cruel and unusual punishment."
+    citation: "U.S. Const. amend. VIII"
+    citationUrl: "https://constitution.congress.gov/constitution/amendment-8/"
+    posted: false
+    postedAt: null
+
+  - id: 14
+    text: "The Tenth Amendment reserves powers not delegated to the federal government to the states or the people."
+    citation: "U.S. Const. amend. X"
+    citationUrl: "https://constitution.congress.gov/constitution/amendment-10/"
+    posted: false
+    postedAt: null
+
+  - id: 15
+    text: "The Constitution has been amended 27 times."
+    citation: "U.S. Const. amends."
+    citationUrl: "https://constitution.congress.gov/constitution/"
+    posted: false
+    postedAt: null
+
+  - id: 16
+    text: "The longest amendment process took over 200 years (Compensation for Members of Congress)."
+    citation: "U.S. Const. amend. XXVII"
+    citationUrl: "https://constitution.congress.gov/constitution/amendment-27/"
+    posted: false
+    postedAt: null
+
+  - id: 17
+    text: "The Constitution doesn't mention political parties."
+    citation: "U.S. Const."
+    posted: false
+    postedAt: null
+
+  - id: 18
+    text: "The Electoral College elects the President, not a direct popular vote."
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/browse/article-ii/"
+    posted: false
+    postedAt: null
+
+  - id: 19
+    text: "Treason is specifically defined in the Constitution. (art. III, sec. 3)."
+    citation: "U.S. Const. art. III, § 3"
+    citationUrl: "https://constitution.congress.gov/browse/article-iii/"
+    posted: false
+    postedAt: null
+
+  - id: 20
+    text: "The power of judicial review (Marbury v. Madison) is not explicitly stated, but implied."
+    citation: "Marbury v. Madison, 5 U.S. (1 Cranch) 137 (1803)."
+    posted: false
+    postedAt: null
+
+  - id: 21
+    text: "Amendments can be proposed by Congress or by a national convention called by states."
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/browse/article-v/"
+    posted: false
+    postedAt: null
+
+  - id: 22
+    text: "The Constitution creates a system of checks and balances between the branches of government."
+    citation: "U.S. Const."
+    posted: false
+    postedAt: null
+
+  - id: 23
+    text: "The word \"democracy\" doesn't appear in the Constitution. It's a republic!"
+    citation: "U.S. Const."
+    posted: false
+    postedAt: null
+
+  - id: 24
+    text: "The Constitution originally lacked a list of rights, prompting demands for a Bill of Rights."
+    citation: "U.S. Const. amends. I-X"
+    posted: false
+    postedAt: null
+
+  - id: 25
+    text: "The Commerce Clause (Art. I, Sec. 8) gives Congress broad power to regulate interstate commerce."
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/browse/article-i/"
+    posted: false
+    postedAt: null
+
+  - id: 26
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 27
+    text: "Article I vests all legislative powers in Congress. #USConstitution"
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 28
+    text: "The President must be a natural born citizen & 35+ years old. #POTUS"
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 29
+    text: "The Constitution originally didn't define citizenship; the 14th Amendment did. #Citizenship"
+    citation: "U.S. Const. amend. XIV"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 30
+    text: "The Constitution is the supreme law of the land. #SupremacyClause"
+    citation: "U.S. Const. art. VI, cl. 2"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 31
+    text: "The 27th Amendment, limiting Congressional pay raises, was ratified in 1992, 203 years after being proposed! #Delayed"
+    citation: "U.S. Const. amend. XXVII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 32
+    text: "The Electoral College chooses the President, not a direct popular vote. #ElectoralCollege"
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 33
+    text: "Treason is the only crime defined in the Constitution. #Treason"
+    citation: "U.S. Const. art. III, § 3"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 34
+    text: "The Bill of Rights' first 10 amendments guarantee fundamental rights. #BillOfRights"
+    citation: "U.S. Const. amends. I-X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 35
+    text: "The Constitution outlines how states are represented in Congress. #Representation"
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 36
+    text: "The Constitution can be amended, but it's a difficult process. #AmendmentProcess"
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 37
+    text: "The \"necessary and proper\" clause gives Congress implied powers. #NecessaryAndProper"
+    citation: "U.S. Const. art. I, § 8, cl. 18"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 38
+    text: "The Vice President is the President of the Senate. #VicePresident"
+    citation: "U.S. Const. art. I, § 3"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 39
+    text: "The Constitution establishes a system of checks and balances. #ChecksAndBalances"
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 40
+    text: "The Constitution delegates specific powers to the federal government. #Federalism"
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 41
+    text: "The original Constitution didn't mention political parties. #NoParties"
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 42
+    text: "Federal judges, including Supreme Court Justices, serve lifetime appointments. #LifetimeAppointments"
+    citation: "U.S. Const. art. III, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 43
+    text: "Impeachment is a constitutional process to remove officials. #Impeachment"
+    citation: "U.S. Const. art. II, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 44
+    text: "The Constitution protects against unreasonable searches & seizures. #FourthAmendment"
+    citation: "U.S. Const. amend. IV"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 45
+    text: "The Constitution guarantees a speedy and public trial. #SixthAmendment"
+    citation: "U.S. Const. amend. VI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 46
+    text: "The Constitution prohibits cruel and unusual punishments. #EighthAmendment"
+    citation: "U.S. Const. amend. VIII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 47
+    text: "The 19th Amendment gave women the right to vote in 1920. #WomensSuffrage"
     citation: "U.S. Const. amend. XIX"
-    citationUrl: "https://constitution.congress.gov/browse/amendment-19/"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 48
+    text: "The Constitution ensures equal protection under the law. #EqualProtection"
+    citation: "U.S. Const. amend. XIV"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 49
+    text: "The 26th Amendment lowered the voting age to 18. #VotingAge"
+    citation: "U.S. Const. amend. XXVI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 50
+    text: "The Constitution establishes a republican form of government. #Republicanism"
+    citation: "U.S. Const. art. IV, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 51
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 52
+    text: "The Constitution originally had no Bill of Rights; it was added later through amendments."
+    citation: "U.S. Const. amends. I-X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 53
+    text: "James Madison is often called the \"Father of the Constitution\" for his pivotal role in drafting it."
+    posted: false
+    postedAt: null
+
+  - id: 54
+    text: "The Constitution creates a system of checks and balances to prevent any one branch from becoming too powerful."
+    citation: "U.S. Const. arts. I-III"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 55
+    text: "Article I establishes the Legislative Branch, Congress, responsible for making laws."
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 56
+    text: "The President's power to pardon (except in cases of impeachment) is found in Article II."
+    citation: "U.S. Const. art. II, § 2"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 57
+    text: "Article III creates the Supreme Court and gives Congress the power to establish lower courts."
+    citation: "U.S. Const. art. III"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 58
+    text: "The power to declare war is given to Congress, not the President. #SeparationOfPowers"
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 59
+    text: "The Constitution outlines the process for amending itself in Article V. #AmendmentProcess"
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 60
+    text: "The 1st Amendment guarantees freedom of speech, religion, press, assembly, and petition."
+    citation: "U.S. Const. amend. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 61
+    text: "The 2nd Amendment protects the right to bear arms. #2ndAmendment #GunRights"
+    citation: "U.S. Const. amend. II"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 62
+    text: "The 5th Amendment protects against self-incrimination (pleading the fifth)."
+    citation: "U.S. Const. amend. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 63
+    text: "The 13th Amendment abolished slavery in the United States. #Abolition #CivilWar"
+    citation: "U.S. Const. amend. XIII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 64
+    text: "The 19th Amendment granted women the right to vote. #WomensSuffrage #Vote"
+    citation: "U.S. Const. amend. XIX"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 65
+    text: "The 26th Amendment lowered the voting age to 18. #YouthVote #CivicEngagement"
+    citation: "U.S. Const. amend. XXVI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 66
+    text: "The Constitution is the supreme law of the land. #SupremacyClause"
+    citation: "U.S. Const. art. VI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 67
+    text: "The Electoral College, not a direct popular vote, elects the President."
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 68
+    text: "Impeachment is the process of charging a federal official with misconduct. #Impeachment"
+    citation: "U.S. Const. art. II, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 69
+    text: "The \"Necessary and Proper\" Clause gives Congress implied powers beyond those explicitly listed."
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 70
+    text: "The Constitution originally permitted slavery; it wasn't outlawed until the 13th Amendment."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 71
+    text: "The Constitution doesn't mention political parties. They evolved later."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 72
+    text: "The Great Compromise created a bicameral (two-house) legislature: Senate & House."
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 73
+    text: "The Constitution is the oldest written and still-in-use national constitution."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 74
+    text: "The Speaker of the House is chosen by the House of Representatives. #SpeakerOfTheHouse"
+    citation: "U.S. Const. art. I, § 2"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 75
+    text: "The writ of habeas corpus can only be suspended in cases of rebellion or invasion."
+    citation: "U.S. Const. art. I, § 9"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 76
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 77
+    text: "The oldest delegate at the Constitutional Convention was Benjamin Franklin, age 81."
+    citation: "Catherine Drinker Bowen, Miracle at Philadelphia (1986)"
+    posted: false
+    postedAt: null
+
+  - id: 78
+    text: "The Constitution originally had no Bill of Rights. They were added later as amendments."
+    citation: "U.S. Const. amends. I-X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 79
+    text: "Article I establishes the Legislative Branch (Congress) and its powers. #USConstitution"
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20I"
+    posted: false
+    postedAt: null
+
+  - id: 80
+    text: "The President must be at least 35 years old. #POTUS #ConstitutionFacts"
+    citation: "U.S. Const. art. II, § 1, cl. 5"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20II"
+    posted: false
+    postedAt: null
+
+  - id: 81
+    text: "Article III creates the Supreme Court, but Congress establishes lower courts. #SCOTUS #Law"
+    citation: "U.S. Const. art. III"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20III"
+    posted: false
+    postedAt: null
+
+  - id: 82
+    text: "The Constitution can be amended. #Amendments"
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20V"
+    posted: false
+    postedAt: null
+
+  - id: 83
+    text: "The 27th Amendment, ratified in 1992, was proposed in 1789! It limits Congressional pay raises."
+    citation: "U.S. Const. amend. XXVII"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Amendment%20XXVII"
+    posted: false
+    postedAt: null
+
+  - id: 84
+    text: "Only 39 of the 55 delegates present at the Constitutional Convention signed the document."
+    citation: "Richard Beeman, Plain, Honest Men: The Making of the American Constitution (2009)"
+    posted: false
+    postedAt: null
+
+  - id: 85
+    text: "The Constitution doesn't mention political parties. #History"
+    citation: "Akhil Reed Amar, America's Constitution: A Biography (2005)"
+    posted: false
+    postedAt: null
+
+  - id: 86
+    text: "The Great Compromise (Connecticut Compromise) created a bicameral legislature. #Senate #House"
+    citation: "National Archives and Records Administration"
+    citationUrl: "https://www.archives.gov/founding-docs/great-compromise"
+    posted: false
+    postedAt: null
+
+  - id: 87
+    text: "The Electoral College chooses the President, not a direct popular vote. #Elections"
+    citation: "U.S. Const. art. II, § 1, cl. 2"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20II"
+    posted: false
+    postedAt: null
+
+  - id: 88
+    text: "Impeachment is the process of charging a federal officer with misconduct. #Impeachment"
+    citation: "U.S. Const. art. II, § 4"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20II"
+    posted: false
+    postedAt: null
+
+  - id: 89
+    text: "Treason is specifically defined in the Constitution (levying war or aiding enemies). #Law"
+    citation: "U.S. Const. art. III, § 3"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20III"
+    posted: false
+    postedAt: null
+
+  - id: 90
+    text: "The Constitution guarantees a republican form of government to every state. #Democracy"
+    citation: "U.S. Const. art. IV, § 4"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20IV"
+    posted: false
+    postedAt: null
+
+  - id: 91
+    text: "The Supremacy Clause states the Constitution is the supreme law of the land. #FederalLaw"
+    citation: "U.S. Const. art. VI, cl. 2"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Article%20VI"
+    posted: false
+    postedAt: null
+
+  - id: 92
+    text: "The First Amendment protects freedom of speech, religion, press, assembly, and petition."
+    citation: "U.S. Const. amend. I"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Amendment%20I"
+    posted: false
+    postedAt: null
+
+  - id: 93
+    text: "The Second Amendment guarantees the right to bear arms. #2A"
+    citation: "U.S. Const. amend. II"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Amendment%20II"
+    posted: false
+    postedAt: null
+
+  - id: 94
+    text: "The Fifth Amendment protects against self-incrimination (pleading the 5th). #LawAndOrder"
+    citation: "U.S. Const. amend. V"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Amendment%20V"
+    posted: false
+    postedAt: null
+
+  - id: 95
+    text: "The 13th Amendment abolished slavery. #CivilWar #History"
+    citation: "U.S. Const. amend. XIII"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Amendment%20XIII"
+    posted: false
+    postedAt: null
+
+  - id: 96
+    text: "The 19th Amendment gave women the right to vote. #Suffrage #WomensRights"
+    citation: "U.S. Const. amend. XIX"
+    citationUrl: "https://constitution.congress.gov/constitution/#:~:text=Amendment%20XIX"
+    posted: false
+    postedAt: null
+
+  - id: 97
+    text: "The phrase \"separation of church and state\" isn't in the Constitution, but derived from interpretation."
+    citation: "Reynolds v. United States, 98 U.S. 145 (1878)"
+    posted: false
+    postedAt: null
+
+  - id: 98
+    text: "The Constitution is the oldest written and still-used national constitution in the world."
+    citation: "National Constitution Center"
+    citationUrl: "https://constitutioncenter.org/the-constitution/what-is-the-constitution"
+    posted: false
+    postedAt: null
+
+  - id: 99
+    text: "James Madison is often called the \"Father of the Constitution.\" #FoundingFathers"
+    citation: "Jack N. Rakove, James Madison and the Creation of the American Republic (2002)"
+    posted: false
+    postedAt: null
+
+  - id: 100
+    text: "The Constitution was written in Philadelphia. #Philly #History"
+    citation: "National Archives and Records Administration"
+    citationUrl: "https://www.archives.gov/founding-docs"
+    posted: false
+    postedAt: null
+
+  - id: 101
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 102
+    text: "The U.S. Constitution is the oldest written national constitution still in use."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 103
+    text: "Article I of the Constitution outlines the powers of the Legislative Branch (Congress)."
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 104
+    text: "The President must be a natural-born citizen, at least 35 years old, & a resident for 14 years."
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 105
+    text: "The Constitution originally had no Bill of Rights; they were added later as the first 10 amendments."
+    citation: "U.S. Const. amend. I-X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 106
+    text: "The Third Amendment prohibits the forced quartering of soldiers in private homes."
+    citation: "U.S. Const. amend. III"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 107
+    text: "The 27th Amendment, ratified in 1992, was first proposed in 1789 by James Madison!"
+    citation: "U.S. Const. amend. XXVII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 108
+    text: "The Constitution outlines a system of checks and balances between the branches of government."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 109
+    text: "The Great Compromise resolved the issue of state representation in Congress."
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 110
+    text: "The Electoral College elects the President, not a direct popular vote."
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 111
+    text: "Impeachment can remove a President for \"high crimes and misdemeanors\"."
+    citation: "U.S. Const. art. II, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 112
+    text: "The Vice President is also the President of the Senate."
+    citation: "U.S. Const. art. I, § 3"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 113
+    text: "The Constitution guarantees the right to a jury trial in criminal cases (6th Amendment)."
+    citation: "U.S. Const. amend. VI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 114
+    text: "The 13th Amendment abolished slavery in the United States."
+    citation: "U.S. Const. amend. XIII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 115
+    text: "The 19th Amendment granted women the right to vote."
+    citation: "U.S. Const. amend. XIX"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 116
+    text: "The Supreme Court has the power of judicial review, established in Marbury v. Madison."
+    citation: "Marbury v. Madison, 5 U.S. (1 Cranch) 137 (1803)"
+    posted: false
+    postedAt: null
+
+  - id: 117
+    text: "The Constitution is intentionally vague in some areas to allow for interpretation."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 118
+    text: "The power to declare war is given to Congress (Article I)."
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 119
+    text: "The Constitution guarantees a republican form of government to every state."
+    citation: "U.S. Const. art. IV, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 120
+    text: "The Bill of Rights originally only applied to the federal government, not the states."
+    posted: false
+    postedAt: null
+
+  - id: 121
+    text: "The Constitution can be amended, but it's a difficult process requiring supermajorities."
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 122
+    text: "The Supremacy Clause states the Constitution is the supreme law of the land."
+    citation: "U.S. Const. art. VI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 123
+    text: "Federal judges hold their offices during \"good behaviour,\" effectively for life."
+    citation: "U.S. Const. art. III, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 124
+    text: "The Constitution protects against ex post facto laws - laws that retroactively punish actions."
+    citation: "U.S. Const. art. I, § 9"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 125
+    text: "The original Constitution discussed slavery without using the word \"slave\"."
+    citation: "U.S. Const. art. I, § 2"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 126
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 127
+    text: "The Constitution is the oldest written national constitution still in use."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 128
+    text: "The Bill of Rights (first 10 Amendments) wasn't originally part of the Constitution."
+    citation: "U.S. Const. amends. I-X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 129
+    text: "The Constitution establishes three branches of government: legislative, executive, and judicial. (Separation of Powers!)"
+    citation: "U.S. Const. arts. I-III"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 130
+    text: "Article I grants Congress the power to declare war. (U.S. Const. art. I, § 8)"
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 131
+    text: "The President must be a natural-born citizen of the U.S. (U.S. Const. art. II, § 1)"
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 132
+    text: "The Constitution guarantees a trial by jury in criminal cases. (U.S. Const. amend. VI)"
+    citation: "U.S. Const. amend. VI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 133
+    text: "The 27th Amendment, limiting Congressional pay raises, was ratified over 200 years after it was proposed!"
+    citation: "U.S. Const. amend. XXVII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 134
+    text: "The Constitution initially allowed states to decide who could vote, leading to widespread disenfranchisement."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 135
+    text: "The Electoral College was created as a compromise between a popular vote and Congressional election of the President."
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 136
+    text: "The power of judicial review (declaring laws unconstitutional) was established in Marbury v. Madison (1803)."
+    citation: "Marbury v. Madison, 5 U.S. (1 Cranch) 137 (1803)"
+    posted: false
+    postedAt: null
+
+  - id: 137
+    text: "The Constitution doesn't explicitly mention political parties."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 138
+    text: "The 13th Amendment abolished slavery. (U.S. Const. amend. XIII)"
+    citation: "U.S. Const. amend. XIII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 139
+    text: "The 14th Amendment guarantees equal protection under the law. (U.S. Const. amend. XIV)"
+    citation: "U.S. Const. amend. XIV"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 140
+    text: "The 15th Amendment granted African American men the right to vote. (U.S. Const. amend. XV)"
+    citation: "U.S. Const. amend. XV"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 141
+    text: "The 19th Amendment granted women the right to vote. (U.S. Const. amend. XIX)"
+    citation: "U.S. Const. amend. XIX"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 142
+    text: "The 26th Amendment lowered the voting age to 18. (U.S. Const. amend. XXVI)"
+    citation: "U.S. Const. amend. XXVI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 143
+    text: "The Constitution can be amended, but it's a difficult process. (U.S. Const. art. V)"
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 144
+    text: "Federal laws and treaties are the supreme law of the land. (U.S. Const. art. VI)"
+    citation: "U.S. Const. art. VI"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 145
+    text: "The Great Compromise established a bicameral (two-house) legislature."
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 146
+    text: "The Three-Fifths Compromise counted enslaved people as 3/5 of a person for representation."
+    citation: "U.S. Const. art. I, § 2, cl. 3"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 147
+    text: "James Madison is often called the \"Father of the Constitution.\" He played a key role in drafting it."
+    posted: false
+    postedAt: null
+
+  - id: 148
+    text: "The Necessary and Proper Clause (aka the Elastic Clause) gives Congress implied powers. (U.S. Const. art. I, § 8)"
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 149
+    text: "The Constitution has only been amended 27 times since 1789."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 150
+    text: "The U.S. Constitution originally had no provisions guaranteeing individual rights."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 151
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 152
+    text: "The Constitution originally had no Bill of Rights; they were added later as the first 10 Amendments."
+    citation: "U.S. Const. amend. I-X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 153
+    text: "Article I establishes the Legislative Branch (Congress), detailing its powers & structure. #USConstitution"
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 154
+    text: "The President must be a natural-born citizen, at least 35 years old, and a resident for 14 years. #POTUS"
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 155
+    text: "The Supreme Court's power of judicial review (to declare laws unconstitutional) isn't explicitly in the text."
+    citation: "Marbury v. Madison, 5 U.S. 137 (1803)"
+    posted: false
+    postedAt: null
+
+  - id: 156
+    text: "The Constitution grants Congress the power to declare war. #WarPowers"
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 157
+    text: "The 27th Amendment, limiting Congressional pay raises, was proposed in 1789 but not ratified until 1992!"
+    citation: "U.S. Const. amend. XXVII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 158
+    text: "The 3/5ths Compromise counted enslaved people as 3/5ths of a person for representation & taxation. #History"
+    citation: "U.S. Const. art. I, § 2 (repealed)"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 159
+    text: "The Electoral College chooses the President, not a direct popular vote. #Elections"
+    citation: "U.S. Const. art. II, § 1"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 160
+    text: "The Constitution can be amended, but the process is intentionally difficult. #Amendments"
+    citation: "U.S. Const. art. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 161
+    text: "The Supremacy Clause establishes the Constitution as the supreme law of the land. #Law"
+    citation: "U.S. Const. art. VI, cl. 2"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 162
+    text: "James Madison is often called the \"Father of the Constitution.\" #FoundingFathers"
+    posted: false
+    postedAt: null
+
+  - id: 163
+    text: "Freedom of speech isn't absolute; there are limits (e.g., inciting violence). #1stAmendment"
+    citation: "U.S. Const. amend. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 164
+    text: "The Constitution is the oldest written national constitution still in use. #HistoryFacts"
+    posted: false
+    postedAt: null
+
+  - id: 165
+    text: "Impeachment is the process to remove a President, VP, or other federal officer. #Impeachment"
+    citation: "U.S. Const. art. II, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 166
+    text: "The Senate has the sole power to try all impeachments. #Senate"
+    citation: "U.S. Const. art. I, § 3"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 167
+    text: "The Vice President is the President of the Senate. #VP"
+    citation: "U.S. Const. art. I, § 3"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 168
+    text: "The Commerce Clause gives Congress power to regulate interstate commerce. #CommerceClause"
+    citation: "U.S. Const. art. I, § 8"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 169
+    text: "Double jeopardy (being tried twice for the same crime) is prohibited by the 5th Amendment. #5thAmendment"
+    citation: "U.S. Const. amend. V"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 170
+    text: "The right to bear arms is guaranteed by the 2nd Amendment. #2ndAmendment"
+    citation: "U.S. Const. amend. II"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 171
+    text: "The states retain powers not delegated to the federal government (10th Amendment). #StatesRights"
+    citation: "U.S. Const. amend. X"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 172
+    text: "The Great Compromise created a bicameral legislature (House & Senate). #Congress"
+    posted: false
+    postedAt: null
+
+  - id: 173
+    text: "The word \"democracy\" doesn't appear in the Constitution. It guarantees a \"republican form of government.\""
+    citation: "U.S. Const. art. IV, § 4"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 174
+    text: "The Constitution originally didn't define citizenship; the 14th Amendment did after the Civil War. #Citizenship"
+    citation: "U.S. Const. amend. XIV"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 175
+    text: "The Constitution has been amended 27 times. #USHistory"
+    citation: "U.S. Const. amends. I-XXVII"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 176
+    text: "The Constitution was signed on September 17, 1787, now celebrated as Constitution Day."
+    citation: "U.S. Const."
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 177
+    text: "Article I vests all legislative powers in the Congress. #USConstitution"
+    citation: "U.S. Const. art. I"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 178
+    text: "The 27th Amendment, ratified in 1992, prohibits Congress from giving itself a pay raise that takes effect immediately."
+    citation: "U.S. Const. amend. XXVII"
+    posted: false
+    postedAt: null
+
+  - id: 179
+    text: "The phrase \"separation of church and state\" doesn't appear in the Constitution."
+    citation: "U.S. Const. amend. I"
+    posted: false
+    postedAt: null
+
+  - id: 180
+    text: "James Madison is considered the \"Father of the Constitution.\" #FoundingFathers"
+    posted: false
+    postedAt: null
+
+  - id: 181
+    text: "Article II outlines the powers of the President. #ExecutiveBranch"
+    citation: "U.S. Const. art. II"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 182
+    text: "The Electoral College was established because some founders distrusted direct democracy."
+    citation: "U.S. Const. art. II, § 1"
+    posted: false
+    postedAt: null
+
+  - id: 183
+    text: "The Constitution originally lacked a Bill of Rights. #BillOfRights"
+    posted: false
+    postedAt: null
+
+  - id: 184
+    text: "The 10th Amendment reserves powers not delegated to the federal government to the states or the people."
+    citation: "U.S. Const. amend. X"
+    posted: false
+    postedAt: null
+
+  - id: 185
+    text: "Article III establishes the judicial branch and the Supreme Court. #SupremeCourt"
+    citation: "U.S. Const. art. III"
+    citationUrl: "https://constitution.congress.gov/"
+    posted: false
+    postedAt: null
+
+  - id: 186
+    text: "The Constitution is the supreme law of the land. #SupremacyClause"
+    citation: "U.S. Const. art. VI, cl. 2"
+    posted: false
+    postedAt: null
+
+  - id: 187
+    text: "The 3/5ths Compromise counted enslaved people as 3/5ths of a person for representation."
+    citation: "U.S. Const. art. I, § 2, cl. 3"
+    posted: false
+    postedAt: null
+
+  - id: 188
+    text: "The Constitution has been amended 27 times."
+    citation: "U.S. Const. amend."
+    posted: false
+    postedAt: null
+
+  - id: 189
+    text: "The President must be a natural born citizen. #PresidentialRequirements"
+    citation: "U.S. Const. art. II, § 1, cl. 5"
+    posted: false
+    postedAt: null
+
+  - id: 190
+    text: "Treason is specifically defined in the Constitution. #Treason"
+    citation: "U.S. Const. art. III, § 3"
+    posted: false
+    postedAt: null
+
+  - id: 191
+    text: "The Senate originally wasn't directly elected by the people. #Senate"
+    citation: "U.S. Const."
+    posted: false
+    postedAt: null
+
+  - id: 192
+    text: "The right to bear arms is guaranteed by the 2nd Amendment."
+    citation: "U.S. Const. amend. II"
+    posted: false
+    postedAt: null
+
+  - id: 193
+    text: "The power to declare war is given to Congress. #DeclarationOfWar"
+    citation: "U.S. Const. art. I, § 8, cl. 11"
+    posted: false
+    postedAt: null
+
+  - id: 194
+    text: "The 13th Amendment abolished slavery."
+    citation: "U.S. Const. amend. XIII"
+    posted: false
+    postedAt: null
+
+  - id: 195
+    text: "The Vice President is the President of the Senate. #VicePresident"
+    citation: "U.S. Const. art. I, § 3, cl. 4"
+    posted: false
+    postedAt: null
+
+  - id: 196
+    text: "The Constitution protects against unlawful searches and seizures. #4thAmendment"
+    citation: "U.S. Const. amend. IV"
+    posted: false
+    postedAt: null
+
+  - id: 197
+    text: "The Federalist Papers argued in favor of ratifying the Constitution. #FederalistPapers"
+    posted: false
+    postedAt: null
+
+  - id: 198
+    text: "The Constitution guarantees a right to a speedy and public trial. #6thAmendment"
+    citation: "U.S. Const. amend. VI"
+    posted: false
+    postedAt: null
+
+  - id: 199
+    text: "The Constitution requires a census every 10 years. #Census"
+    citation: "U.S. Const. art. I, § 2, cl. 3"
+    posted: false
+    postedAt: null
+
+  - id: 200
+    text: "The Great Compromise created a bicameral legislature. #GreatCompromise"
     posted: false
     postedAt: null
 
