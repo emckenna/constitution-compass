@@ -1,21 +1,24 @@
 name: Post Constitutional Facts to X
 
-on:
-  schedule:
-    # Post 5 times per day at optimal US engagement times (UTC)
-    # 9am EST = 14:00 UTC
-    - cron: '0 14 * * *'
-    # 12pm EST = 17:00 UTC
-    - cron: '0 17 * * *'
-    # 3pm EST = 20:00 UTC
-    - cron: '0 20 * * *'
-    # 6pm EST = 23:00 UTC
-    - cron: '0 23 * * *'
-    # 9pm EST = 02:00 UTC (next day)
-    - cron: '0 2 * * *'
+# DISABLED: X account under review
+# Re-enable by uncommenting the schedule section below
 
-  # Allow manual trigger for testing
-  workflow_dispatch:
+on:
+  # schedule:
+  #   # Post 5 times per day at optimal US engagement times (UTC)
+  #   # 9am EST = 14:00 UTC
+  #   - cron: '0 14 * * *'
+  #   # 12pm EST = 17:00 UTC
+  #   - cron: '0 17 * * *'
+  #   # 3pm EST = 20:00 UTC
+  #   - cron: '0 20 * * *'
+  #   # 6pm EST = 23:00 UTC
+  #   - cron: '0 23 * * *'
+  #   # 9pm EST = 02:00 UTC (next day)
+  #   - cron: '0 2 * * *'
+
+  # Allow manual trigger for testing (disabled while account under review)
+  # workflow_dispatch:
 
 jobs:
   post-fact:
